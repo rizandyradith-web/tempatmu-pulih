@@ -1,0 +1,14 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/companion"
+  to = "https://companion-placeholder.netlify.app"
+  status = 302
+  force = true
+
+# Tambahkan redirect baru di bawah sini kalau perlu:
+# [[redirects]]
+#   from = "/nama-path"
+#   to = "https://url-tujuan.com"
+#   status = 302

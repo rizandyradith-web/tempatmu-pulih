@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">Ruang Pulih — Kamu Tidak Sendiri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =============================================
+       PASSIVE SUICIDAL THOUGHTS BANNER (PLACEHOLDER)
+       ============================================= -->
+  <div id="passive-banner" class="passive-banner">
+    <div class="passive-banner__inner">
+      <span class="passive-banner__icon">🌿</span>
+      <p class="passive-banner__text" data-id="banner-text">
+        Kalau kamu sering merasa capek hidup tanpa tahu kenapa — ada ruang khusus untukmu di sini.
+      </p>
+      <a href="/companion" class="passive-banner__btn" id="passive-banner-btn" data-id="banner-btn">
+        Temani Aku →
+      </a>
+    </div>
+    <button class="passive-banner__close" id="banner-close" aria-label="Tutup">✕</button>
+  </div>
+
+  <!-- =============================================
+       NAVBAR
+       ============================================= -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__logo">
+      <span class="logo-leaf">🌿</span>
+      <span class="logo-text">Ruang Pulih</span>
+    </div>
+    <ul class="navbar__links">
+      <li><a href="#section-quotes" data-id="nav-quotes">Suara Hati</a></li>
+      <li><a href="#section-edu" data-id="nav-edu">Pahami Ini</a></li>
+      <li><a href="#section-forothers" data-id="nav-forothers">Untuk Kamu</a></li>
+      <li><a href="#section-hotline" data-id="nav-hotline">Bantuan Darurat</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <!-- Language Toggle -->
+      <div class="lang-toggle" id="lang-toggle" title="Ganti Bahasa / Switch Language">
+        <button class="lang-btn active" id="btn-id" onclick="setLang('id')">🇮🇩 ID</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
+      <!-- AI Chat Button -->
+      <button class="ai-chat-trigger" id="ai-chat-trigger" data-id="ai-btn">
+        <span>✦</span> <span data-id="ai-btn-label">Bicara dengan AI</span>
+      </button>
+    </div>
+    <button class="navbar__hamburger" id="hamburger">☰</button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#section-quotes" data-id="nav-quotes">Suara Hati</a></li>
+      <li><a href="#section-edu" data-id="nav-edu">Pahami Ini</a></li>
+      <li><a href="#section-forothers" data-id="nav-forothers">Untuk Kamu</a></li>
+      <li><a href="#section-hotline" data-id="nav-hotline">Bantuan Darurat</a></li>
+    </ul>
+    <div class="mobile-lang">
+      <button onclick="setLang('id')">🇮🇩 Bahasa Indonesia</button>
+      <button onclick="setLang('en')">🇬🇧 English</button>
+    </div>
+  </div>
+
+  <!-- =============================================
+       HERO SECTION
+       ============================================= -->
+  <section class="hero" id="home">
+    <div class="hero__bg-circles">
+      <div class="circle c1"></div>
+      <div class="circle c2"></div>
+      <div class="circle c3"></div>
+    </div>
+    <div class="hero__content">
+      <div class="hero__tag" data-id="hero-tag">Kamu datang di saat yang tepat.</div>
+      <h1 class="hero__title" data-id="hero-title">
+        Kamu tidak harus baik-baik saja<br>untuk berada di sini.
+      </h1>
+      <p class="hero__subtitle" data-id="hero-subtitle">
+        Ruang ini dibuat bukan karena kami tahu persis apa yang kamu rasakan —
+        tapi karena kami percaya bahwa perasaanmu nyata, dan kamu layak untuk didengar.
+      </p>
+      <div class="hero__cta-group">
+        <a href="#section-forothers" class="btn btn--primary" data-id="hero-cta1">Aku sedang berjuang</a>
+        <a href="#section-forothers" class="btn btn--ghost" data-id="hero-cta2">Aku ingin membantu orang lain</a>
+      </div>
+    </div>
+    <div class="hero__scroll-hint">
+      <span class="scroll-dot"></span>
+    </div>
+  </section>
+
+  <!-- =============================================
+       QUOTES SECTION
+       ============================================= -->
+  <section class="section-quotes" id="section-quotes">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label" data-id="quotes-label">Suara Hati</div>
+        <h2 class="section-title" data-id="quotes-title">
+          Kata-kata yang mungkin pernah tinggal di dadamu
+        </h2>
+        <p class="section-desc" data-id="quotes-desc">
+          Dari novel, film, anime, dan kata-kata mereka yang pernah merasakan kegelapan yang sama —
+          kamu bukan satu-satunya yang merasakannya.
+        </p>
+      </div>
+
+      <div class="quotes-carousel">
+        <div class="quotes-track" id="quotes-track">
+
+          <!-- Quote 1 — Seporsi Mie Ayam Sebelum Mati -->
+          <div class="quote-card">
+            <div class="quote-card__icon">"</div>
+            <p class="quote-card__text" data-id="q1-text">
+              Mungkin yang aku cari bukan cara untuk mati.
+              Mungkin yang aku cari adalah alasan untuk tetap hidup.
+            </p>
+            <div class="quote-card__source">
+              <span class="source-dot"></span>
+              <span data-id="q1-src"><em>Seporsi Mie Ayam Sebelum Mati</em> — J.S. Khairen</span>
+            </div>
+          </div>
+
+          <!-- Quote 2 — Your Lie in April (Shigatsu wa Kimi no Uso) -->
+          <div class="quote-card">
+            <div class="quote-card__icon">"</div>
+            <p class="quote-card__text" data-id="q2-text">
+              Aku merasa seperti tenggelam di bawah cahaya bulan —
+              terlihat cantik dari jauh, tapi tak ada yang tahu betapa dinginnya air di sini.
+            </p>
+            <div class="quote-card__source">
+              <span class="source-dot"></span>
+              <span data-id="q2-src"><em>Your Lie in April</em> — Kaori Miyazono</span>
+            </div>
+          </div>
+
+          <!-- Quote 3 — The Perks of Being a Wallflower -->
+          <div class="quote-card">
+            <div class="quote-card__icon">"</div>
+            <p class="quote-card__text" data-id="q3-text">
+              Bahkan di tengah segalanya yang terasa hancur,
+              kamu masih ada di sini. Dan itu bukan hal kecil.
+            </p>
+            <div class="quote-card__source">
+              <span class="source-dot"></span>
+              <span data-id="q3-src"><em>The Perks of Being a Wallflower</em> — Stephen Chbosky</span>
+            </div>
+          </div>
+
+          <!-- Quote 4 — Fyodor Dostoevsky -->
+          <div class="quote-card">
+            <div class="quote-card__icon">"</div>
+            <p class="quote-card__text" data-id="q4-text">
+              Mencintai kehidupan lebih dari maknanya —
+              itulah setengah dari keberanian yang kamu butuhkan untuk terus berjalan.
+            </p>
+            <div class="quote-card__source">
+              <span class="source-dot"></span>
+              <span data-id="q4-src"><em>The Brothers Karamazov</em> — Fyodor Dostoevsky</span>
+            </div>
+          </div>
+
+          <!-- Quote 5 — Neon Genesis Evangelion -->
+          <div class="quote-card">
+            <div class="quote-card__icon">"</div>
+            <p class="quote-card__text" data-id="q5-text">
+              Dunia ini tidak sempurna. Tapi ia masih ada untukmu —
+              dan selama itu, kamu masih punya kemungkinan.
+            </p>
+            <div class="quote-card__source">
+              <span class="source-dot"></span>
+              <span data-id="q5-src"><em>Neon Genesis Evangelion</em> — Rei Ayanami</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="quotes-nav">
+          <button class="q-prev" id="q-prev">←</button>
+          <div class="q-dots" id="q-dots"></div>
+          <button class="q-next" id="q-next">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       EDUCATION SECTION
+       ============================================= -->
+  <section class="section-edu" id="section-edu">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label" data-id="edu-label">Pahami Ini</div>
+        <h2 class="section-title" data-id="edu-title">Apa yang sebenarnya terjadi?</h2>
+        <p class="section-desc" data-id="edu-desc">
+          Pikiran untuk mengakhiri hidup bukan tanda kelemahan, kebodohan, atau kurang iman.
+          Ini adalah sinyal bahwa seseorang sedang menanggung rasa sakit yang melebihi kemampuannya saat ini.
+        </p>
+      </div>
+
+      <!-- OPEN LETTER BLOCK -->
+      <div class="open-letter">
+        <div class="open-letter__inner">
+          <p class="open-letter__line" data-id="letter-p1">
+            Kita mungkin tidak saling kenal. Aku tidak tahu namamu, tidak tahu apa yang sudah kamu lalui, tidak tahu berapa malam yang kamu lewati sendirian dengan pikiran yang terasa terlalu berat untuk ditanggung.
+          </p>
+          <p class="open-letter__line" data-id="letter-p2">
+            Tapi aku tahu satu hal: kamu sudah berjuang sebaik yang kamu bisa. Dengan apa yang kamu punya. Dengan sisa tenaga yang ada. Dan itu — meski terasa kecil bagimu — adalah sesuatu yang luar biasa.
+          </p>
+          <p class="open-letter__line" data-id="letter-p3">
+            Mungkin ada hari-hari di mana kamu bangun pagi dan itu saja sudah terasa seperti pencapaian terbesar. Mungkin ada momen di mana kamu harus pura-pura baik-baik saja di depan orang lain, padahal di dalam kamu sedang hampir hancur. Mungkin kamu sudah lelah menjelaskan rasa sakitmu kepada orang-orang yang tidak mengerti — sampai kamu memilih diam, bukan karena tidak apa-apa, tapi karena lelah berusaha dipahami.
+          </p>
+          <p class="open-letter__line" data-id="letter-p4">
+            Itu tidak membuatmu lemah. Itu tidak membuatmu berlebihan. Itu tidak membuatmu gila atau salah atau tidak layak untuk bertahan.
+          </p>
+          <p class="open-letter__line open-letter__line--highlight" data-id="letter-p5">
+            Rasa sakitmu nyata. Kelelahan itu nyata. Dan kamu — kamu juga nyata, dan berharga, bahkan di hari-hari ketika kamu paling sulit mempercayai itu.
+          </p>
+          <p class="open-letter__line" data-id="letter-p6">
+            Halaman ini bukan untuk menghakimimu. Bukan untuk memberitahumu bahwa kamu "harusnya" merasa seperti ini atau itu. Ini hanya ingin bilang: kamu tidak harus menanggung ini sendirian. Dan ada hal-hal yang mungkin belum kamu tahu — tentang apa yang sebenarnya terjadi di dalam dirimu — yang mungkin bisa membuatmu sedikit lebih memahami diri sendiri.
+          </p>
+          <div class="open-letter__sig" data-id="letter-sig">— Dengan penuh ketulusan, Ruang Pulih 🌿</div>
+        </div>
+      </div>
+
+      <div class="edu-cards">
+        <div class="edu-card" data-delay="0">
+          <div class="edu-card__icon">🧠</div>
+          <h3 data-id="edu1-title">Apa itu Suicidal Thoughts?</h3>
+          <p data-id="edu1-desc">
+            Pikiran bunuh diri adalah pikiran tentang mengakhiri hidup sendiri. Bisa berupa pikiran pasif
+            ("Aku ingin tidak ada") atau aktif (rencana konkret). Ini bukan pilihan — ini adalah gejala
+            dari rasa sakit yang sangat dalam.
+          </p>
+        </div>
+        <div class="edu-card" data-delay="100">
+          <div class="edu-card__icon">💬</div>
+          <h3 data-id="edu2-title">Ini Lebih Umum dari yang Kamu Kira</h3>
+          <p data-id="edu2-desc">
+            Menurut WHO, lebih dari 700.000 orang meninggal karena bunuh diri setiap tahun —
+            artinya jauh lebih banyak yang berjuang setiap hari. Kamu tidak sendirian dalam pertarungan ini.
+          </p>
+        </div>
+        <div class="edu-card" data-delay="200">
+          <div class="edu-card__icon">🌊</div>
+          <h3 data-id="edu3-title">Tanda-tanda yang Perlu Diperhatikan</h3>
+          <p data-id="edu3-desc">
+            Menarik diri dari orang-orang terdekat, berkata "semua orang lebih baik tanpaku",
+            memberi-beri barang berharga, atau tiba-tiba tampak sangat tenang setelah periode depresi —
+            ini bisa menjadi sinyal bahwa seseorang butuh bantuan segera.
+          </p>
+        </div>
+        <div class="edu-card" data-delay="300">
+          <div class="edu-card__icon">🔬</div>
+          <h3 data-id="edu4-title">Ini Bukan Soal Lemah atau Kuat</h3>
+          <p data-id="edu4-desc">
+            Depresi dan pikiran bunuh diri memiliki dasar neurobiologis — melibatkan ketidakseimbangan
+            neurotransmiter di otak. Sama seperti diabetes bukan "kurang bersyukur",
+            depresi bukan "kurang kuat". Ini penyakit yang bisa diobati.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       FOR OTHERS / FOR SELF — DUAL TABS SECTION
+       ============================================= -->
+  <section class="section-forothers" id="section-forothers">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label" data-id="action-label">Apa yang Harus Dilakukan</div>
+        <h2 class="section-title" data-id="action-title">Ada di sini — untuk siapapun kamu</h2>
+      </div>
+
+      <div class="tab-group">
+        <div class="tab-btns">
+          <button class="tab-btn active" id="tab-self" onclick="switchTab('self')" data-id="tab-self-label">
+            🫀 Aku yang sedang berjuang
+          </button>
+          <button class="tab-btn" id="tab-others" onclick="switchTab('others')" data-id="tab-others-label">
+            🤝 Aku ingin bantu seseorang
+          </button>
+        </div>
+
+        <!-- TAB: SELF -->
+        <div class="tab-content active" id="tab-content-self">
+          <div class="tab-content__intro tab-content__intro--wide">
+            <h3 data-id="self-intro-title">Hei. Hanya dengan membuka halaman ini, kamu sudah melakukan sesuatu yang tidak mudah.</h3>
+            <div class="self-intro-body">
+              <p data-id="self-intro-p1">
+                Gak ada yang mengharapkan kamu tiba-tiba baik-baik saja. Gak ada yang akan menilai seberapa parah kondisimu, atau apakah kamu "cukup" menderita untuk boleh minta tolong. Kamu boleh ada di sini, apa adanya, dengan semua yang sedang kamu rasakan sekarang.
+              </p>
+              <p data-id="self-intro-p2">
+                Mungkin kamu sudah lama menyimpan semua ini sendirian. Mungkin kamu sudah mencoba cerita tapi tidak dimengerti. Mungkin kamu bahkan tidak tahu harus mulai dari mana — karena rasa sakitnya sudah terlalu banyak untuk dirangkum dalam kata-kata.
+              </p>
+              <p data-id="self-intro-p3">
+                Itu wajar. Kamu tidak harus menjelaskan apapun. Yang paling penting sekarang, satu-satunya hal yang perlu kamu lakukan, adalah tetap aman — dan membiarkan langkah-langkah kecil di bawah ini menemanimu pelan-pelan.
+              </p>
+            </div>
+          </div>
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-num">01</div>
+              <h4 data-id="self-s1-title">Pergi dari situasi yang tidak aman</h4>
+              <p data-id="self-s1-desc">Kalau ada benda atau tempat yang membuatmu merasa tidak aman, jauhkan dirimu dari sana dulu. Pergi ke tempat ramai, atau hubungi seseorang.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">02</div>
+              <h4 data-id="self-s2-title">Hubungi seseorang sekarang</h4>
+              <p data-id="self-s2-desc">Boleh teman, anggota keluarga, atau hotline di bawah ini. Kamu tidak harus menjelaskan semuanya — cukup bilang "aku butuh ditemani sekarang."</p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">03</div>
+              <h4 data-id="self-s3-title">Buat "Rencana Keselamatan" sederhana</h4>
+              <p data-id="self-s3-desc">Tuliskan: siapa yang akan kamu hubungi, tempat yang membuatmu merasa aman, dan satu hal kecil yang bisa kamu lakukan saat pikiran itu datang (ex: minum air, keluar dari kamar).</p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">04</div>
+              <h4 data-id="self-s4-title">Cari bantuan profesional</h4>
+              <p data-id="self-s4-desc">Psikolog atau psikiater bukan tanda kamu gila — mereka adalah orang yang terlatih untuk menemanimu keluar dari kegelapan ini. Kamu berhak mendapat bantuan itu.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">05</div>
+              <h4 data-id="self-s5-title">Izinkan dirimu merasa</h4>
+              <p data-id="self-s5-desc">Kamu tidak harus "kuat" atau "bersyukur" sekarang. Izinkan dirimu sedih, marah, atau lelah — perasaan itu valid. Kamu tidak harus pura-pura baik-baik saja.</p>
+            </div>
+            <div class="step-card step-card--highlight">
+              <div class="step-num">✦</div>
+              <h4 data-id="self-s6-title">Bicara dengan AI Companion kami</h4>
+              <p data-id="self-s6-desc">Kalau kamu belum siap bicara dengan manusia, AI companion kami bisa jadi pendengar pertama yang aman dan tidak menghakimi — 24 jam sehari.</p>
+              <button class="btn btn--primary btn--sm" onclick="openAIChat()" data-id="self-s6-btn">Mulai Bicara →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: OTHERS -->
+        <div class="tab-content" id="tab-content-others">
+          <div class="tab-content__intro">
+            <h3 data-id="others-intro-title">Kamu peduli — dan itu sudah luar biasa.</h3>
+            <p data-id="others-intro-desc">
+              Tidak mudah menyaksikan seseorang yang kamu sayangi berjuang.
+              Berikut adalah hal-hal yang bisa kamu lakukan — dan yang harus kamu hindari.
+            </p>
+          </div>
+          <div class="steps-grid">
+            <div class="step-card step-card--do">
+              <div class="step-badge step-badge--do">✓ Lakukan</div>
+              <h4 data-id="oth-d1-title">Dengarkan tanpa menghakimi</h4>
+              <p data-id="oth-d1-desc">Kamu tidak perlu punya jawaban. Cukup ada — tanpa menyela, tanpa memvalidasi, tanpa berkata "tapi kamu punya banyak yang harus disyukuri." Cukup dengarkan.</p>
+            </div>
+            <div class="step-card step-card--do">
+              <div class="step-badge step-badge--do">✓ Lakukan</div>
+              <h4 data-id="oth-d2-title">Tanya langsung dan dengan tenang</h4>
+              <p data-id="oth-d2-desc">Penelitian membuktikan: menanyakan "apakah kamu punya pikiran untuk menyakiti dirimu sendiri?" tidak memicu pikiran itu. Justru memberinya ruang untuk jujur.</p>
+            </div>
+            <div class="step-card step-card--do">
+              <div class="step-badge step-badge--do">✓ Lakukan</div>
+              <h4 data-id="oth-d3-title">Bantu akses bantuan profesional</h4>
+              <p data-id="oth-d3-desc">Tawari untuk menemani mereka ke psikolog, atau bantu mereka menghubungi hotline. Kadang hambatan terbesar adalah tidak tahu harus mulai dari mana.</p>
+            </div>
+            <div class="step-card step-card--dont">
+              <div class="step-badge step-badge--dont">✗ Hindari</div>
+              <h4 data-id="oth-x1-title">Jangan remehkan atau bandingkan</h4>
+              <p data-id="oth-x1-desc">Kalimat seperti "banyak yang lebih susah dari kamu" atau "itu cuma lebay" bisa membuat mereka semakin merasa tidak layak untuk ditolong.</p>
+            </div>
+            <div class="step-card step-card--dont">
+              <div class="step-badge step-badge--dont">✗ Hindari</div>
+              <h4 data-id="oth-x2-title">Jangan tinggalkan sendirian jika krisis</h4>
+              <p data-id="oth-x2-desc">Kalau kamu merasa mereka dalam bahaya sekarang, jangan pergi. Tetap bersama mereka, atau hubungi layanan darurat jika perlu.</p>
+            </div>
+            <div class="step-card step-card--dont">
+              <div class="step-badge step-badge--dont">✗ Hindari</div>
+              <h4 data-id="oth-x3-title">Jangan menanggungnya sendirian</h4>
+              <p data-id="oth-x3-desc">Kamu juga berhak mendapat dukungan. Membantu seseorang yang sedang krisis bisa sangat melelahkan — cari komunitas atau konselor untuk dirimu sendiri juga.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       HOTLINE SECTION
+       ============================================= -->
+  <section class="section-hotline" id="section-hotline">
+    <div class="container">
+      <div class="section-header section-header--light">
+        <div class="section-label section-label--light" data-id="hotline-label">Bantuan Darurat</div>
+        <h2 class="section-title section-title--light" data-id="hotline-title">
+          Kalau sekarang rasanya tidak bisa ditanggung lagi —
+        </h2>
+        <p class="section-desc section-desc--light" data-id="hotline-desc">
+          Hubungi salah satu layanan di bawah ini. Mereka terlatih, tidak akan menghakimi,
+          dan siap mendengarkan kapanpun kamu butuh.
+        </p>
+      </div>
+
+      <div class="hotline-cards">
+        <div class="hotline-card">
+          <div class="hotline-card__flag">🇮🇩</div>
+          <div class="hotline-card__info">
+            <h4>Into The Light Indonesia</h4>
+            <p data-id="hl1-desc">Konseling &amp; dukungan emosional</p>
+            <a href="tel:119" class="hotline-num">119 ext. 8</a>
+          </div>
+          <div class="hotline-card__avail" data-id="hl-24h">24 Jam</div>
+        </div>
+        <div class="hotline-card">
+          <div class="hotline-card__flag">🇮🇩</div>
+          <div class="hotline-card__info">
+            <h4>Yayasan Pulih</h4>
+            <p data-id="hl2-desc">Konseling psikologis</p>
+            <a href="tel:+6221788-42580" class="hotline-num">(021) 788-42580</a>
+          </div>
+          <div class="hotline-card__avail" data-id="hl-office">Jam Kerja</div>
+        </div>
+        <div class="hotline-card">
+          <div class="hotline-card__flag">🇮🇩</div>
+          <div class="hotline-card__info">
+            <h4>RSUD / Puskesmas Terdekat</h4>
+            <p data-id="hl3-desc">Layanan kesehatan jiwa terdekat</p>
+            <a href="tel:112" class="hotline-num">112 (Darurat)</a>
+          </div>
+          <div class="hotline-card__avail" data-id="hl-24h">24 Jam</div>
+        </div>
+        <div class="hotline-card">
+          <div class="hotline-card__flag">🌐</div>
+          <div class="hotline-card__info">
+            <h4>Crisis Text Line</h4>
+            <p data-id="hl4-desc">Chat-based crisis support (English)</p>
+            <a href="https://www.crisistextline.org" target="_blank" class="hotline-num">crisistextline.org</a>
+          </div>
+          <div class="hotline-card__avail" data-id="hl-24h">24 Jam</div>
+        </div>
+      </div>
+
+      <div class="hotline-note" data-id="hotline-note">
+        📞 Jika kamu atau seseorang dalam bahaya langsung, hubungi <strong>112</strong> atau pergi ke IGD rumah sakit terdekat.
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       AI CHAT COMPANION (FLOATING)
+       ============================================= -->
+  <div class="ai-chat-panel" id="ai-chat-panel">
+    <div class="ai-chat__header">
+      <div class="ai-chat__title">
+        <span class="ai-status-dot"></span>
+        <span data-id="ai-panel-title">AI Companion — Ruang Pulih</span>
+      </div>
+      <button class="ai-chat__close" onclick="closeAIChat()">✕</button>
+    </div>
+    <div class="ai-chat__messages" id="ai-messages">
+      <div class="ai-msg ai-msg--bot">
+        <p data-id="ai-welcome">Hei 🌿 Aku di sini. Kamu tidak harus menjelaskan semuanya — ceritakan saja apa yang kamu mau. Aku mendengarkan.</p>
+      </div>
+    </div>
+    <div class="ai-chat__disclaimer" data-id="ai-disclaimer">
+      ⚠️ AI ini bukan pengganti bantuan profesional. Jika kamu dalam bahaya, hubungi 119 ext. 8 sekarang.
+    </div>
+    <div class="ai-chat__input-row">
+      <input type="text" id="ai-input" class="ai-chat__input" placeholder="Cerita di sini..." data-id-placeholder="ai-input-placeholder" />
+      <button class="ai-chat__send" onclick="sendAIMessage()">↑</button>
+    </div>
+  </div>
+
+  <!-- Floating AI Button (mobile) -->
+  <button class="ai-fab" id="ai-fab" onclick="openAIChat()" aria-label="Buka AI Chat">
+    <span>✦</span>
+  </button>
+
+  <!-- =============================================
+       FOOTER
+       ============================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">🌿 Ruang Pulih</div>
+          <p data-id="footer-tagline">Kamu tidak harus sendirian menanggung ini semua.</p>
+        </div>
+        <div class="footer__links">
+          <h5 data-id="footer-nav-label">Navigasi</h5>
+          <ul>
+            <li><a href="#section-quotes" data-id="nav-quotes">Suara Hati</a></li>
+            <li><a href="#section-edu" data-id="nav-edu">Pahami Ini</a></li>
+            <li><a href="#section-forothers" data-id="nav-forothers">Untuk Kamu</a></li>
+            <li><a href="#section-hotline" data-id="nav-hotline">Bantuan Darurat</a></li>
+          </ul>
+        </div>
+        <div class="footer__disclaimer">
+          <h5 data-id="footer-disc-title">Catatan Penting</h5>
+          <p data-id="footer-disc-text">
+            Website ini dibuat untuk tujuan edukasi dan dukungan emosional.
+            AI Companion kami bukan pengganti bantuan profesional.
+            Jika kamu dalam krisis, hubungi layanan darurat.
+          </p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p data-id="footer-copy">Dibuat dengan ❤️ sebagai produk berbasis AI untuk kepedulian kesehatan mental.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
