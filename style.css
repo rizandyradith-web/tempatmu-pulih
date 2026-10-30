@@ -428,14 +428,18 @@ section { padding: 100px 0; }
 .quotes-carousel {
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 .quotes-track {
   display: flex;
-  gap: 24px;
+  gap: 0;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
 }
 .quote-card {
-  min-width: calc(100% - 0px);
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   background: var(--white);
   border-radius: var(--radius-lg);
   padding: 56px 64px;
@@ -443,6 +447,7 @@ section { padding: 100px 0; }
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border);
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 .quote-card__icon {
   font-family: var(--font-serif);
@@ -947,6 +952,86 @@ section { padding: 100px 0; }
   text-align: center;
   font-size: 0.8rem;
   color: rgba(255,255,255,0.35);
+}
+
+/* ================================================
+   SATIRICAL / REAL-TALK EDU SECTION
+   ================================================ */
+.section-satire {
+  background: #F4EFE6;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.section-label--satire {
+  color: #B25E3B;
+  background: rgba(178, 94, 59, 0.12);
+  padding: 4px 14px;
+  border-radius: 100px;
+}
+.satire-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+.satire-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 32px 26px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.satire-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.satire-card__badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(192, 57, 43, 0.12);
+  color: var(--danger);
+  margin-bottom: 16px;
+}
+.satire-card__badge--green {
+  background: rgba(46, 125, 82, 0.15);
+  color: var(--do-green);
+}
+.satire-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.satire-card__sub {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #B25E3B;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.satire-card--truth .satire-card__sub {
+  color: var(--sage-dark);
+}
+.satire-card__desc {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  line-height: 1.75;
+}
+.satire-card--truth {
+  border-left: 4px solid var(--sage-dark);
+  background: #FAF8F4;
 }
 
 /* ================================================

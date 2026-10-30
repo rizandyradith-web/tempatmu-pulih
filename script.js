@@ -26,11 +26,12 @@ const LANG = {
     "nav-quotes": "Suara Hati",
     "nav-edu": "Pahami Ini",
     "nav-forothers": "Untuk Kamu",
+    "nav-satire": "Cara Nolong",
     "nav-hotline": "Bantuan Darurat",
     "ai-btn-label": "Bicara dengan AI",
 
     // Hero
-    "hero-tag": "Kamu datang di saat yang tepat.",
+    "hero-tag": "Kamu datang di saat yang tepat",
     "hero-title": "Kamu tidak harus baik-baik saja\nuntuk berada di sini.",
     "hero-subtitle": "Ruang ini dibuat bukan karena kami tahu persis apa yang kamu rasakan — tapi karena kami percaya bahwa perasaanmu nyata, dan kamu layak untuk didengar.",
     "hero-cta1": "Aku sedang berjuang",
@@ -64,11 +65,26 @@ const LANG = {
     "edu4-title": "Ini Bukan Soal Lemah atau Kuat",
     "edu4-desc": "Depresi dan pikiran bunuh diri memiliki dasar neurobiologis — melibatkan ketidakseimbangan neurotransmiter di otak. Sama seperti diabetes bukan \"kurang bersyukur\", depresi bukan \"kurang kuat\". Ini penyakit yang bisa diobati.",
 
-    // Action Tabs
-    "action-label": "Apa yang Harus Dilakukan",
-    "action-title": "Ada di sini — untuk siapapun kamu",
-    "tab-self-label": "🫀 Aku yang sedang berjuang",
-    "tab-others-label": "🤝 Aku ingin bantu seseorang",
+    // Action / Self Steps
+    "action-label": "Langkah Perlindungan Diri",
+    "action-title": "Untuk kamu yang sedang berjuang di detik ini",
+
+    // Satirical / Real-Talk Section
+    "satire-label": "Catatan Keras Tapi Benar",
+    "satire-title": "Buat yang Mau \"Nolong\", Tapi Malah Bikin Tambah Berat",
+    "satire-desc": "Kalau ada teman atau keluarga yang cerita lagi hancur, tolong jangan lakukan hal-hal sok bijak di bawah ini. Niat baik tanpa empati cuma nambah luka.",
+    "sat1-title": "\"Kurang ibadah dan kurang bersyukur kamu tuh.\"",
+    "sat1-sub": "Padahal: Penyakit mental bukan azab atau tanda kurang iman.",
+    "sat1-desc": "Orang depresi itu neurotransmiter di otaknya lagi kacau, sama kayak orang asma yang paru-parunya sesak. Kamu gak bakal nyuruh orang kena tipes atau patah tulang buat 'cuma istighfar dan bersyukur' kan? Ceramah di saat krisis cuma bikin mereka merasa bersalah dan makin pengen menghilang.",
+    "sat2-title": "\"Ah kamu mah lebay, liat noh si anu lebih menderita!\"",
+    "sat2-sub": "Padahal: Penderitaan bukan ajang olimpiade yang harus dibandingin siapa paling tersiksa.",
+    "sat2-desc": "Fakta bahwa ada orang lain yang lebih menderita gak serta merta bikin rasa sakit dia menguap. Menyepelekan rasa sakit orang lain gak bakal bikin mereka termotivasi, itu cuma bikin mereka ngerasa dirinya gak pantes hidup dan gak pantes ditolong.",
+    "sat3-title": "\"Dulu aku juga pernah gitu kok, tapi buktinya aku kuat tuh.\"",
+    "sat3-sub": "Padahal: Dia lagi butuh didengar, bukan lagi nonton seminar motivasi kamu.",
+    "sat3-desc": "Jangan bajak sesi curhat orang jadi panggung pamer ketahanan mentalmu. Tiap orang punya kapasitas saraf, trauma masa lalu, dan lingkungan yang beda. Kalau kamu kuat, alhamdulillah. Tapi jangan jadiin standar dirimu buat nge-judge rapuhnya orang lain.",
+    "sat4-title": "Cukup Duduk, Diam, dan Dengarkan.",
+    "sat4-sub": "Kamu gak diminta jadi psikiater atau penemu solusi hidupnya.",
+    "sat4-desc": "Cukup bilang: \"Aku gak sepenuhnya paham apa yang kamu laluin, tapi aku ada di sini buat nemenin kamu. Makasih ya udah mau cerita ke aku.\" Kalimat sederhana itu jauh lebih menyelamatkan nyawa daripada seribu dalil dan nasihat sok tau.",
 
     // Education — Open Letter
     "letter-p1": "Kita mungkin tidak saling kenal. Aku tidak tahu namamu, tidak tahu apa yang sudah kamu lalui, tidak tahu berapa malam yang kamu lewati sendirian dengan pikiran yang terasa terlalu berat untuk ditanggung.",
@@ -149,6 +165,7 @@ const LANG = {
     "nav-quotes": "Heart Voices",
     "nav-edu": "Understand This",
     "nav-forothers": "For You",
+    "nav-satire": "How to Help",
     "nav-hotline": "Emergency Help",
     "ai-btn-label": "Talk to AI",
     "hero-tag": "You came at the right time.",
@@ -188,10 +205,26 @@ const LANG = {
     "edu3-desc": "Withdrawing from loved ones, saying \"everyone is better off without me\", giving away valued possessions, or suddenly appearing calm after a period of depression — these can be signals that someone needs help immediately.",
     "edu4-title": "It's Not About Weakness or Strength",
     "edu4-desc": "Depression and suicidal thoughts have a neurobiological basis — involving imbalances of neurotransmitters in the brain. Just as diabetes is not \"insufficient gratitude\", depression is not \"insufficient strength\". It is an illness that can be treated.",
-    "action-label": "What To Do",
-    "action-title": "Here — for whoever you are",
-    "tab-self-label": "🫀 I am the one struggling",
-    "tab-others-label": "🤝 I want to help someone",
+    // Action / Self Steps
+    "action-label": "Self-Protection Steps",
+    "action-title": "For you who is fighting right at this very moment",
+
+    // Satirical / Real-Talk Section
+    "satire-label": "Hard Truths to Swallow",
+    "satire-title": "For Those Who Want to \"Help\", But Actually Make Things Worse",
+    "satire-desc": "If a friend or family member confides in you about their mental breakdown, please don't pull these pseudo-wise remarks. Good intentions without genuine empathy only cause deeper wounds.",
+    "sat1-title": "\"You just need to pray more and be more grateful.\"",
+    "sat1-sub": "Reality check: Mental illness is not a divine punishment or a lack of faith.",
+    "sat1-desc": "In clinical depression, brain neurotransmitters are physically out of balance, exactly like asthma tightens the lungs. You wouldn't tell someone with typhoid fever or a fractured bone to 'just pray it off and be thankful', right? Preaching in the middle of a crisis only induces guilt and accelerates their urge to disappear.",
+    "sat2-title": "\"You're just being dramatic, look at others having it worse!\"",
+    "sat2-sub": "Reality check: Suffering is not an Olympic tournament of who endures the most pain.",
+    "sat2-desc": "The fact that someone else suffers doesn't magically vaporize another person's pain. Invalidating someone's suffering doesn't motivate them; it simply convinces them they don't deserve help or existence.",
+    "sat3-title": "\"I went through that too back then, but look at me now, I was strong.\"",
+    "sat3-sub": "Reality check: They need someone to listen, not your personal motivational seminar.",
+    "sat3-desc": "Don't hijack someone's vulnerable confession into a stage for your mental toughness flexing. Everyone carries distinct nervous capacities, past traumas, and support environments. Don't use your personal bar to judge someone else's fragility.",
+    "sat4-title": "Just Sit Down, Be Quiet, and Listen.",
+    "sat4-sub": "Nobody asked you to be their psychiatrist or life-solver.",
+    "sat4-desc": "Just say: \"I may not fully comprehend what you're battling, but I'm right here with you. Thank you for trusting me enough to share.\" That single sentence saves infinitely more lives than a thousand unsolicited sermons.",
     "self-intro-title": "Hey. Just by opening this page, you've already done something that wasn't easy.",
     "self-intro-p1": "No one expects you to suddenly be okay. No one will judge how severe your situation is, or whether you're \"suffering enough\" to ask for help. You're allowed to be here, exactly as you are, with everything you're feeling right now.",
     "self-intro-p2": "Maybe you've been carrying all of this alone for a long time. Maybe you've tried to talk about it but weren't understood. Maybe you don't even know where to start — because the pain has been too much to fit into words.",
@@ -425,8 +458,9 @@ function initQuotes() {
 function goToQuote(index) {
   currentQuote = index;
   const track = document.getElementById('quotes-track');
-  const cardWidth = track.querySelector('.quote-card').offsetWidth + 24; // gap
-  track.style.transform = `translateX(-${index * 100}%)`;
+  if (track) {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
 
   document.querySelectorAll('.q-dot').forEach((dot, i) => {
     dot.classList.toggle('active', i === index);
