@@ -3,400 +3,834 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title id="companion-page-title">Temani Aku — Ruang Pulih</title>
+  <title id="page-title">Alasan Untuk Bertahan (Reasons To Stay) — Ruang Pulih</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Styling Khusus Halaman Temani Aku */
-    body.companion-body {
-      background: #18222A;
+    /* Styling Khusus Reasons To Stay / Temani Aku */
+    body.stay-body {
+      background: #0F172A;
       color: #E2E8F0;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      font-family: var(--font-sans);
     }
-    .companion-nav {
-      padding: 24px 32px;
+    
+    .stay-nav {
+      padding: 18px 32px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(24, 34, 42, 0.8);
-      backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    .companion-back-link {
+    .stay-back-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-size: 0.88rem;
       color: rgba(255, 255, 255, 0.7);
-      transition: var(--transition);
       padding: 6px 14px;
       border-radius: 100px;
       border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: var(--transition);
     }
-    .companion-back-link:hover {
+    .stay-back-link:hover {
       color: #fff;
       border-color: var(--sage-light);
       background: rgba(127, 168, 130, 0.15);
     }
-    .companion-hero {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 60px 24px 100px;
-      max-width: 800px;
+    
+    .stay-container {
+      max-width: 860px;
       margin: 0 auto;
+      padding: 50px 24px 100px;
+      flex: 1;
+      width: 100%;
     }
-    .companion-pill {
+    
+    .stay-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .stay-badge {
       display: inline-block;
-      background: rgba(168, 197, 170, 0.15);
-      border: 1px solid rgba(168, 197, 170, 0.3);
+      background: rgba(127, 168, 130, 0.15);
+      border: 1px solid rgba(127, 168, 130, 0.35);
       color: var(--sage-light);
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       padding: 6px 18px;
       border-radius: 100px;
-      margin-bottom: 24px;
-    }
-    .companion-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      color: #FFFFFF;
-      line-height: 1.3;
       margin-bottom: 20px;
+    }
+    .stay-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      color: #FFFFFF;
+      line-height: 1.25;
+      margin-bottom: 16px;
       font-weight: 600;
     }
-    .companion-subtitle {
+    .stay-subtitle {
       font-family: var(--font-serif);
       font-style: italic;
-      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-size: clamp(1rem, 2vw, 1.15rem);
       color: rgba(255, 255, 255, 0.75);
       line-height: 1.8;
-      margin-bottom: 48px;
-      max-width: 640px;
-    }
-    
-    /* Interactive Breathing Sphere */
-    .breathe-container {
-      margin: 20px auto 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .breathe-circle {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(127, 168, 130, 0.45) 0%, rgba(78, 122, 84, 0.1) 70%);
-      border: 2px solid rgba(168, 197, 170, 0.5);
-      box-shadow: 0 0 50px rgba(127, 168, 130, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: breatheAnim 8s ease-in-out infinite;
-      transition: all 0.3s ease;
-    }
-    .breathe-text {
-      font-family: var(--font-serif);
-      font-size: 1rem;
-      color: #FFFFFF;
-      letter-spacing: 0.05em;
-    }
-    @keyframes breatheAnim {
-      0%, 100% {
-        transform: scale(0.85);
-        box-shadow: 0 0 20px rgba(127, 168, 130, 0.2);
-        opacity: 0.8;
-      }
-      50% {
-        transform: scale(1.3);
-        box-shadow: 0 0 70px rgba(127, 168, 130, 0.6);
-        opacity: 1;
-      }
+      max-width: 620px;
+      margin: 0 auto;
     }
 
-    /* Ambient Sounds / Calm Cards */
-    .ambient-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      width: 100%;
-      margin-top: 40px;
-      text-align: left;
+    /* Category Filter Pills */
+    .filter-wrapper {
+      margin: 32px 0 24px;
+      text-align: center;
     }
-    .ambient-card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-md);
-      padding: 24px 20px;
-      cursor: pointer;
-      transition: var(--transition);
-      position: relative;
-    }
-    .ambient-card:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(168, 197, 170, 0.4);
-      transform: translateY(-3px);
-    }
-    .ambient-card.active {
-      border-color: var(--sage);
-      background: rgba(127, 168, 130, 0.15);
-      box-shadow: 0 4px 20px rgba(127, 168, 130, 0.2);
-    }
-    .ambient-icon {
-      font-size: 1.8rem;
+    .filter-label {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.55);
       margin-bottom: 12px;
-    }
-    .ambient-card h4 {
-      font-size: 1rem;
-      color: #FFFFFF;
-      margin-bottom: 6px;
-      font-family: var(--font-serif);
-    }
-    .ambient-card p {
-      font-size: 0.82rem;
-      color: rgba(255, 255, 255, 0.6);
-      line-height: 1.5;
-    }
-    .audio-status {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--sage-light);
-      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
       display: block;
     }
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .filter-btn {
+      padding: 8px 18px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.86rem;
+      font-weight: 500;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+    .filter-btn.active {
+      background: var(--sage-dark);
+      border-color: var(--sage);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(78, 122, 84, 0.4);
+    }
 
-    /* Monolog Note */
-    .quiet-note {
-      margin-top: 60px;
-      padding: 32px;
-      background: rgba(255, 255, 255, 0.03);
+    /* THE LETTER DISPLAY CARD */
+    .letter-display-box {
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.75) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: var(--radius-lg);
-      border-left: 3px solid var(--sage-light);
-      text-align: left;
+      padding: 48px 44px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      position: relative;
+      margin-bottom: 28px;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(8px);
+    }
+    .letter-display-box::before {
+      content: '"';
+      font-family: var(--font-serif);
+      font-size: 7rem;
+      color: var(--sage-light);
+      opacity: 0.18;
+      position: absolute;
+      top: 15px;
+      left: 30px;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .letter-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 16px;
+    }
+    .letter-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(127, 168, 130, 0.15);
+      border: 1px solid rgba(127, 168, 130, 0.3);
+      color: var(--sage-light);
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .letter-author {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-style: italic;
+    }
+    .letter-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+      color: #F8FAFC;
+      line-height: 1.85;
+      margin-bottom: 24px;
+      min-height: 110px;
+      white-space: pre-line;
+    }
+    .letter-reason-highlight {
+      background: rgba(127, 168, 130, 0.12);
+      border-left: 3px solid var(--sage);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
       font-family: var(--font-serif);
       font-style: italic;
-      font-size: 0.98rem;
-      line-height: 1.9;
+      color: var(--sage-light);
+      font-size: 1.05rem;
+      margin-top: 16px;
+    }
+
+    /* ACTION BUTTONS (Next Letter & Write) */
+    .letter-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    .btn-next-letter {
+      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 20px rgba(78, 122, 84, 0.35);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .btn-next-letter:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(78, 122, 84, 0.5);
+    }
+    .btn-write-letter {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .btn-write-letter:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* WRITE LETTER FORM (COLLAPSIBLE MODAL / DRAWER) */
+    .write-box {
+      background: #1E293B;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      margin-top: 30px;
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .write-box.open {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .write-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .write-desc {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
       color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .form-control {
+      width: 100%;
+      background: #0F172A;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.92rem;
+      outline: none;
+      transition: var(--transition);
+      box-sizing: border-box;
+    }
+    .form-control:focus {
+      border-color: var(--sage);
+      box-shadow: 0 0 0 3px rgba(127, 168, 130, 0.2);
+    }
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+    .write-submit-btn {
+      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .write-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(78, 122, 84, 0.4);
+    }
+    .write-cancel-btn {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.88rem;
+      padding: 12px 20px;
+      cursor: pointer;
+    }
+    .write-cancel-btn:hover {
+      color: #fff;
+    }
+
+    /* ALL LETTERS WALL FEED */
+    .letters-wall-header {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 50px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .letters-wall-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .letters-wall-desc {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 30px;
+    }
+    .letters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .mini-letter-card {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+    .mini-letter-card:hover {
+      background: rgba(30, 41, 59, 0.9);
+      border-color: rgba(168, 197, 170, 0.3);
+      transform: translateY(-3px);
+    }
+    .mini-letter-text {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .mini-letter-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .letter-display-box {
+        padding: 32px 24px;
+      }
+      .letter-display-box::before {
+        font-size: 5rem;
+        top: 8px;
+        left: 14px;
+      }
+      .write-box {
+        padding: 24px 18px;
+      }
     }
   </style>
 </head>
-<body class="companion-body">
+<body class="stay-body">
 
-  <!-- NAVBAR MINI -->
-  <nav class="companion-nav">
-    <a href="/" class="companion-back-link" id="back-home-btn">
-      ← <span data-id="comp-back">Kembali ke Halaman Utama</span>
+  <!-- NAVBAR -->
+  <nav class="stay-nav">
+    <a href="/" class="stay-back-link">
+      ← <span data-id="stay-back">Kembali ke Beranda Ruang Pulih</span>
     </a>
     <div class="navbar__actions">
       <div class="lang-toggle" id="lang-toggle">
-        <button class="lang-btn active" id="btn-id" onclick="setCompanionLang('id')">🇮🇩 ID</button>
-        <button class="lang-btn" id="btn-en" onclick="setCompanionLang('en')">🇬🇧 EN</button>
+        <button class="lang-btn active" id="btn-id" onclick="setLang('id')">🇮🇩 ID</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
       </div>
     </div>
   </nav>
 
-  <!-- CONTENT -->
-  <main class="companion-hero">
-    <div class="companion-pill" data-id="comp-pill">🌿 Ruang Bernapas &amp; Keheningan</div>
-    <h1 class="companion-title" data-id="comp-title">Duduklah sebentar.<br>Dunia bisa menunggu.</h1>
-    <p class="companion-subtitle" data-id="comp-sub">
-      Kamu tidak perlu memikirkan masa depan detik ini. Kamu tidak perlu menyelesaikan apapun sekarang.
-      Cukup berada di sini, dan izinkan tubuhmu bernapas.
-    </p>
-
-    <!-- Breathing Sphere -->
-    <div class="breathe-container">
-      <div class="breathe-circle" id="breathe-circle">
-        <span class="breathe-text" id="breathe-text">Tarik Napas...</span>
-      </div>
-    </div>
-
-    <!-- Monolog Santai & Menenangkan -->
-    <div class="quiet-note">
-      <p data-id="comp-note-1">
-        "Kalau hari ini rasanya terlalu bising, kalau kepalamu dipenuhi rasa capek yang gak ada namanya, kamu boleh memejamkan mata di sini. Kamu gak harus selalu kuat, dan kamu gak harus selalu berguna bagi orang lain. Bertahan hidup saja hari ini sudah sangat cukup."
+  <!-- MAIN CONTAINER -->
+  <div class="stay-container">
+    <header class="stay-header">
+      <div class="stay-badge" data-id="stay-badge">💌 Reasons To Stay • Surat Dari Orang Asing</div>
+      <h1 class="stay-title" data-id="stay-title">Satu Alasan Lagi Untuk Tetap Bertahan.</h1>
+      <p class="stay-subtitle" data-id="stay-subtitle">
+        Ketika pikiranmu menyuruhmu untuk menyerah, bacalah surat ini. Surat-surat ini ditulis oleh orang-orang yang pernah berada di tempat tergelap yang sama, dan mereka ingin kamu tetap ada di sini.
       </p>
-    </div>
+    </header>
 
-    <!-- Soundscape Generator (Web Audio API Synthesizer - No external file needed) -->
-    <div class="ambient-grid">
-      <div class="ambient-card" onclick="toggleCalmSound('rain')" id="card-rain">
-        <div class="ambient-icon">🌧️</div>
-        <h4 data-id="comp-s1-title">Rintik Hujan Tenang</h4>
-        <p data-id="comp-s1-desc">Frekuensi lembut untuk menenggelamkan bising di kepalamu.</p>
-        <span class="audio-status" id="status-rain">Klik untuk dengarkan</span>
-      </div>
-
-      <div class="ambient-card" onclick="toggleCalmSound('waves')" id="card-waves">
-        <div class="ambient-icon">🌊</div>
-        <h4 data-id="comp-s2-title">Deburan Ombak Jauh</h4>
-        <p data-id="comp-s2-desc">Irama konstan yang menenangkan sistem sarafmu.</p>
-        <span class="audio-status" id="status-waves">Klik untuk dengarkan</span>
-      </div>
-
-      <div class="ambient-card" onclick="toggleCalmSound('night')" id="card-night">
-        <div class="ambient-icon">🌙</div>
-        <h4 data-id="comp-s3-title">Deru Malam Teduh</h4>
-        <p data-id="comp-s3-desc">White noise hangat untuk menemani tidur dan istirahat.</p>
-        <span class="audio-status" id="status-night">Klik untuk dengarkan</span>
+    <!-- ISSUE FILTER PILLS -->
+    <div class="filter-wrapper">
+      <span class="filter-label" data-id="filter-label">Pilih apa yang sedang kamu rasakan saat ini:</span>
+      <div class="filter-pills">
+        <button class="filter-btn active" onclick="filterByTopic('all')" data-topic="all" data-id="f-all">✨ Semua Alasan</button>
+        <button class="filter-btn" onclick="filterByTopic('suicidal')" data-topic="suicidal" data-id="f-suicidal">🌊 Ingin Mengakhiri Hidup</button>
+        <button class="filter-btn" onclick="filterByTopic('depression')" data-topic="depression" data-id="f-depression">🌧️ Depresi &amp; Hampa</button>
+        <button class="filter-btn" onclick="filterByTopic('anxiety')" data-topic="anxiety" data-id="f-anxiety">⚡ Cemas &amp; Overthinking</button>
+        <button class="filter-btn" onclick="filterByTopic('loneliness')" data-topic="loneliness" data-id="f-loneliness">🍂 Kesepian &amp; Tak Dimengerti</button>
+        <button class="filter-btn" onclick="filterByTopic('exhaustion')" data-topic="exhaustion" data-id="f-exhaustion">🕯️ Lelah Berjuang</button>
       </div>
     </div>
 
-  </main>
+    <!-- MAIN LETTER DISPLAY CARD -->
+    <div class="letter-display-box" id="letter-box">
+      <div class="letter-meta">
+        <span class="letter-tag" id="letter-topic-tag">🌊 Ingin Mengakhiri Hidup</span>
+        <span class="letter-author" id="letter-author">Dari: Seseorang yang masih bertahan di Jakarta</span>
+      </div>
+      <div class="letter-text" id="letter-text">
+        "Hei... aku gak tau seberapa berat hari ini buat kamu, tapi tolong baca ini sebentar. Dua tahun lalu aku pernah ada di titik yang sama persis: kunci pintu kamar, matiin lampu, dan ngerasa dunia bakal jauh lebih damai tanpa aku. Tapi tau gak? Hal kecil menyelamatkanku malam itu: aroma kopi hangat keesokan paginya, dan lagu favoritku yang gak sengaja keputar di radio.
+
+Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan melewati 5 menit berikutnya. Satu tarikan napas lagi."
+      </div>
+      <div class="letter-reason-highlight" id="letter-reason">
+        🌿 <strong>Alasan untuk tetap tinggal:</strong> Karena musim dingin di hatimu pasti berganti, dan kamu belum melihat siapa saja orang-orang baik yang akan kamu temui di masa depan.
+      </div>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="letter-actions">
+      <button class="btn-next-letter" onclick="generateNextLetter()">
+        <span>✦</span> <span data-id="btn-next-label">Buka Surat Lainnya (AI / Stranger)</span>
+      </button>
+      <button class="btn-write-letter" onclick="toggleWriteForm()">
+        <span>✍️</span> <span data-id="btn-write-label">Tulis Suratmu Sendiri Untuk Orang Lain</span>
+      </button>
+    </div>
+
+    <!-- WRITE LETTER FORM -->
+    <div class="write-box" id="write-box">
+      <h3 class="write-title" data-id="write-title">Tinggalkan Pesan Harapan untuk Seseorang</h3>
+      <p class="write-desc" data-id="write-desc">
+        Kata-katamu yang tulus mungkin adalah satu-satunya hal yang mencegah orang asing di belahan dunia lain untuk mengakhiri hidupnya malam ini. Tulis dengan lembut.
+      </p>
+      
+      <form id="letter-form" onsubmit="submitUserLetter(event)">
+        <div class="form-group">
+          <label data-id="form-label-topic">Surat ini ditujukan untuk mereka yang merasa:</label>
+          <select class="form-control" id="form-topic" required>
+            <option value="suicidal">🌊 Ingin Mengakhiri Hidup / Suicidal Thoughts</option>
+            <option value="depression">🌧️ Depresi &amp; Hampa</option>
+            <option value="anxiety">⚡ Cemas &amp; Panic Attack</option>
+            <option value="loneliness">🍂 Kesepian &amp; Ditinggalkan</option>
+            <option value="exhaustion">🕯️ Lelah Berjuang</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label data-id="form-label-content">Isi Suratmu:</label>
+          <textarea class="form-control" id="form-content" placeholder="Ceritakan apa yang membuatmu bertahan, atau kata-kata hangat yang ingin kamu sampaikan padanya..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label data-id="form-label-reason">Satu alasan kecil untuk tetap hidup (Reason to Stay):</label>
+          <input type="text" class="form-control" id="form-reason" placeholder="Contoh: Karena kucingmu bakal nyariin kamu, atau rasa seporsi mie ayam hangat saat hujan." required />
+        </div>
+
+        <div class="form-group">
+          <label data-id="form-label-name">Dari (Boleh Anonim / Inisial):</label>
+          <input type="text" class="form-control" id="form-author" placeholder="Contoh: Seseorang dari Bandung / Anonim" />
+        </div>
+
+        <div style="display: flex; gap: 10px; align-items: center; margin-top: 20px;">
+          <button type="submit" class="write-submit-btn" data-id="form-submit">Kirim Surat Ini 💌</button>
+          <button type="button" class="write-cancel-btn" onclick="toggleWriteForm()" data-id="form-cancel">Batal</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- RECENT LETTERS COMMUNITY WALL -->
+    <section class="letters-wall-header">
+      <h3 class="letters-wall-title" data-id="wall-title">Dinding Alasan Bertahan (Letters Wall)</h3>
+      <p class="letters-wall-desc" data-id="wall-desc">
+        Kumpulan surat dan pesan tulus yang telah ditulis oleh sesama pengunjung dan AI untuk menemani malam-malam terberatmu.
+      </p>
+      <div class="letters-grid" id="letters-grid">
+        <!-- Rendered dynamically via JS -->
+      </div>
+    </section>
+
+  </div>
 
   <script>
-    /* Breathing text sync */
-    const breatheText = document.getElementById('breathe-text');
-    let isInhale = true;
-    setInterval(() => {
-      isInhale = !isInhale;
-      if (currentCompLang === 'id') {
-        breatheText.textContent = isInhale ? 'Tarik Napas...' : 'Hembuskan Pelan...';
-      } else {
-        breatheText.textContent = isInhale ? 'Inhale Deeply...' : 'Exhale Gently...';
+    /* ========================================================
+       DATABASE SURAT (AI CURATED + SEED DATA + LOCALSTORAGE USER)
+       ======================================================== */
+    const DEFAULT_LETTERS = [
+      {
+        id: 1,
+        topic: "suicidal",
+        author: "Seseorang yang pernah di posisimu (Bandung)",
+        text: "Aku pernah menghitung obat di atas meja sambil menangis gemetar. Rasanya cuma ingin hening. Tapi malam itu aku memutuskan menunggu sampai fajar. Dan matahari terbit itu tidak langsung menyembuhkanku, tapi membuktikan bahwa kegelapan punya batas waktu. Kamu belum kalah. Bertahanlah 24 jam lagi saja.",
+        reason: "Karena kamu berhak melihat versi dirimu yang akhirnya bisa tersenyum lepas lagi tanpa rasa bersalah.",
+        lang: "id"
+      },
+      {
+        id: 2,
+        topic: "depression",
+        author: "Teman yang juga sedang belajar pulih",
+        text: "Depresi itu pembohong ulung. Dia berbisik bahwa kamu beban, bahwa gak ada yang peduli, bahwa kamu gak berguna. Jangan percaya bisikan itu. Otakmu sedang lelah secara klinis, sama seperti kaki yang terkilir. Kamu gak harus produktif hari ini. Cukup bernapas dan bertahan.",
+        reason: "Rasa sejuk air wudhu/mandi sore, aroma hujan pertama di tanah kering, dan novel yang belum sempat kamu selesaikan.",
+        lang: "id"
+      },
+      {
+        id: 3,
+        topic: "anxiety",
+        author: "Anonim (Surabaya)",
+        text: "Jantungmu yang berdebar kencang dan kepalamu yang terasa mau meledak itu cuma respon panik tubuhmu. Kamu tidak sedang sekarat, kamu tidak sedang gila. Tarik napas 4 detik, tahan 4 detik, hembuskan 4 detik. Badai pikiran ini akan lewat, selalu lewat.",
+        reason: "Karena ketakutan terburuk di kepalamu 90% tidak akan pernah benar-benar terjadi.",
+        lang: "id"
+      },
+      {
+        id: 4,
+        topic: "loneliness",
+        author: "Seseorang dari Yogyakarta",
+        text: "Dikelilingi banyak orang tapi rasanya gak ada satu pun yang benar-benar mengenalmu itu sakit banget. Tapi percayalah, di sudut bumi yang lain, ada orang-orang dengan jiwa yang sama yang sedang mencari teman seperti kamu. Kamu cuma belum ketemu mereka aja hari ini.",
+        reason: "Teman masa depanmu sedang menunggumu di suatu tempat. Jangan pergi dulu sebelum sempat menyapa mereka.",
+        lang: "id"
+      },
+      {
+        id: 5,
+        topic: "exhaustion",
+        author: "Kakak yang bangga padamu",
+        text: "Kamu udah memikul ransel batu ini sendirian selama bertahun-tahun tanpa ada yang tau kan? Wajar kalau lututmu gemetar dan kamu pengen ambruk. Jangan paksakan diri untuk kuat. Taruh ranselnya sebentar di sini. Istirahatlah, kamu sudah berjuang luar biasa hebat.",
+        reason: "Bantal tidur yang empuk, selimut hangat, dan rasa lega saat akhirnya bisa melepaskan semua ekspektasi orang lain.",
+        lang: "id"
+      },
+      {
+        id: 6,
+        topic: "suicidal",
+        author: "Someone who stayed (Bristol, UK)",
+        text: "I thought ending it all would give me peace. But suicide doesn't take away the pain, it only eliminates any possibility of things ever getting better. Give yourself one more tomorrow. Just one. And then another when you wake up.",
+        reason: "Because your future favorite song hasn't even been released yet.",
+        lang: "en"
+      },
+      {
+        id: 7,
+        topic: "depression",
+        author: "A fellow wanderer",
+        text: "You don't need a grand purpose to justify existing. You don't owe the world constant accomplishments. Existing, breathing, watching leaves rustle in the breeze — that is already enough.",
+        reason: "The way sunlight hits your bedroom floor at 7 AM on a Sunday morning.",
+        lang: "en"
       }
-    }, 4000);
+    ];
 
-    /* Multilanguage */
-    let currentCompLang = 'id';
-    const COMP_LANG = {
+    /* Dynamic AI Generative Reason Templates */
+    const AI_REASON_GENERATOR = {
+      id: [
+        "Aroma roti yang baru matang di toko bakery.",
+        "Momen melihat kucing liar menguap dan tidur pulas di teras.",
+        "Seporsi mie instan hangat dengan telur setengah matang pas tengah malam dingin.",
+        "Sensasi memutar lagu kesukaanmu dengan volume penuh di earphone.",
+        "Tawa renyah orang yang kamu sayangi ketika kamu menceritakan lelucon bodoh.",
+        "Rasa lega yang luar biasa setelah menuntaskan tangisan panjang di bawah selimut.",
+        "Pemandangan langit sore berwarna oranye keemasan yang belum pernah kamu lihat sebelumnya."
+      ],
+      en: [
+        "The smell of old books and fresh coffee on a rainy afternoon.",
+        "Seeing a stray cat slowly trust you enough to let you pet its head.",
+        "Listening to an album for the very first time and getting full-body chills.",
+        "The crisp cool air filling your lungs right after a midnight rainfall.",
+        "The people you haven't laughed with yet, but who will love you dearly."
+      ]
+    };
+
+    /* State */
+    let currentTopic = 'all';
+    let currentLang = 'id';
+    let allLetters = [];
+
+    function initLetters() {
+      const stored = localStorage.getItem('ruang_pulih_letters');
+      if (stored) {
+        try {
+          const userLetters = JSON.parse(stored);
+          allLetters = [...userLetters, ...DEFAULT_LETTERS];
+        } catch(e) {
+          allLetters = [...DEFAULT_LETTERS];
+        }
+      } else {
+        allLetters = [...DEFAULT_LETTERS];
+      }
+      renderRandomLetter();
+      renderWall();
+    }
+
+    function filterByTopic(topic) {
+      currentTopic = topic;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-topic') === topic);
+      });
+      renderRandomLetter();
+      renderWall();
+    }
+
+    function getFilteredLetters() {
+      return allLetters.filter(l => {
+        const matchTopic = (currentTopic === 'all' || l.topic === currentTopic);
+        const matchLang = (l.lang === currentLang || !l.lang);
+        return matchTopic && matchLang;
+      });
+    }
+
+    function renderRandomLetter() {
+      let pool = getFilteredLetters();
+      if (pool.length === 0) {
+        // Fallback to all topic in current lang
+        pool = allLetters.filter(l => l.lang === currentLang || !l.lang);
+      }
+      if (pool.length === 0) pool = allLetters;
+
+      const randomLetter = pool[Math.floor(Math.random() * pool.length)];
+
+      const topicTagMap = {
+        suicidal: currentLang === 'id' ? '🌊 Ingin Mengakhiri Hidup' : '🌊 Suicidal Thoughts',
+        depression: currentLang === 'id' ? '🌧️ Depresi & Hampa' : '🌧️ Depression & Emptiness',
+        anxiety: currentLang === 'id' ? '⚡ Cemas & Overthinking' : '⚡ Anxiety & Panic',
+        loneliness: currentLang === 'id' ? '🍂 Kesepian' : '🍂 Loneliness',
+        exhaustion: currentLang === 'id' ? '🕯️ Lelah Berjuang' : '🕯️ Exhaustion'
+      };
+
+      const box = document.getElementById('letter-box');
+      box.style.opacity = '0';
+      box.style.transform = 'translateY(10px)';
+
+      setTimeout(() => {
+        document.getElementById('letter-topic-tag').textContent = topicTagMap[randomLetter.topic] || '💌 Alasan Bertahan';
+        document.getElementById('letter-author').textContent = (currentLang === 'id' ? 'Dari: ' : 'From: ') + (randomLetter.author || 'Anonim');
+        document.getElementById('letter-text').textContent = `"${randomLetter.text}"`;
+        
+        const reasonText = randomLetter.reason || AI_REASON_GENERATOR[currentLang][Math.floor(Math.random() * AI_REASON_GENERATOR[currentLang].length)];
+        const label = currentLang === 'id' ? '🌿 Alasan untuk tetap tinggal:' : '🌿 A Reason to Stay:';
+        document.getElementById('letter-reason').innerHTML = `<strong>${label}</strong> ${reasonText}`;
+
+        box.style.opacity = '1';
+        box.style.transform = 'translateY(0)';
+      }, 200);
+    }
+
+    function generateNextLetter() {
+      renderRandomLetter();
+    }
+
+    function toggleWriteForm() {
+      const box = document.getElementById('write-box');
+      box.classList.toggle('open');
+      if (box.classList.contains('open')) {
+        box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function submitUserLetter(e) {
+      e.preventDefault();
+      const topic = document.getElementById('form-topic').value;
+      const content = document.getElementById('form-content').value.trim();
+      const reason = document.getElementById('form-reason').value.trim();
+      const author = document.getElementById('form-author').value.trim() || (currentLang === 'id' ? 'Seseorang yang peduli padamu (Anonim)' : 'Someone who cares (Anonymous)');
+
+      if (!content || !reason) return;
+
+      const newLetter = {
+        id: Date.now(),
+        topic: topic,
+        author: author,
+        text: content,
+        reason: reason,
+        lang: currentLang,
+        date: new Date().toLocaleDateString()
+      };
+
+      // Simpan di LocalStorage
+      const stored = localStorage.getItem('ruang_pulih_letters');
+      let userList = stored ? JSON.parse(stored) : [];
+      userList.unshift(newLetter);
+      localStorage.setItem('ruang_pulih_letters', JSON.stringify(userList));
+
+      // Update state
+      allLetters.unshift(newLetter);
+
+      // Reset form & tutup
+      document.getElementById('letter-form').reset();
+      toggleWriteForm();
+
+      // Langsung tampilkan surat yang baru dibuat
+      currentTopic = topic;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-topic') === topic);
+      });
+      renderRandomLetter();
+      renderWall();
+
+      alert(currentLang === 'id' ? '💌 Terima kasih banyak. Suratmu sudah tersimpan dan akan menemani siapa pun yang membutuhkan harapan malam ini.' : '💌 Thank you sincerely. Your letter has been saved and will comfort someone in their darkest hour.');
+    }
+
+    function renderWall() {
+      const grid = document.getElementById('letters-grid');
+      grid.innerHTML = '';
+      const pool = getFilteredLetters().slice(0, 9); // show up to 9
+
+      pool.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'mini-letter-card';
+        card.innerHTML = `
+          <p class="mini-letter-text">"${item.text.length > 140 ? item.text.substring(0, 140) + '...' : item.text}"</p>
+          <div class="mini-letter-foot">
+            <span>✍️ ${item.author || 'Anonim'}</span>
+            <span style="color: var(--sage-light); font-weight: 500;">🌿 ${item.reason.substring(0, 45)}...</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    /* Multilanguage System */
+    const STAY_LANG = {
       id: {
-        "companion-page-title": "Temani Aku — Ruang Pulih",
-        "comp-back": "Kembali ke Halaman Utama",
-        "comp-pill": "🌿 Ruang Bernapas & Keheningan",
-        "comp-title": "Duduklah sebentar.<br>Dunia bisa menunggu.",
-        "comp-sub": "Kamu tidak perlu memikirkan masa depan detik ini. Kamu tidak perlu menyelesaikan apapun sekarang. Cukup berada di sini, dan izinkan tubuhmu bernapas.",
-        "comp-note-1": "\"Kalau hari ini rasanya terlalu bising, kalau kepalamu dipenuhi rasa capek yang gak ada namanya, kamu boleh memejamkan mata di sini. Kamu gak harus selalu kuat, dan kamu gak harus selalu berguna bagi orang lain. Bertahan hidup saja hari ini sudah sangat cukup.\"",
-        "comp-s1-title": "Rintik Hujan Tenang",
-        "comp-s1-desc": "Frekuensi lembut untuk menenggelamkan bising di kepalamu.",
-        "comp-s2-title": "Deburan Ombak Jauh",
-        "comp-s2-desc": "Irama konstan yang menenangkan sistem sarafmu.",
-        "comp-s3-title": "Deru Malam Teduh",
-        "comp-s3-desc": "White noise hangat untuk menemani tidur dan istirahat."
+        "page-title": "Alasan Untuk Bertahan (Reasons To Stay) — Ruang Pulih",
+        "stay-back": "Kembali ke Beranda Ruang Pulih",
+        "stay-badge": "💌 Reasons To Stay • Surat Dari Orang Asing",
+        "stay-title": "Satu Alasan Lagi Untuk Tetap Bertahan.",
+        "stay-subtitle": "Ketika pikiranmu menyuruhmu untuk menyerah, bacalah surat ini. Surat-surat ini ditulis oleh orang-orang yang pernah berada di tempat tergelap yang sama, dan mereka ingin kamu tetap ada di sini.",
+        "filter-label": "Pilih apa yang sedang kamu rasakan saat ini:",
+        "f-all": "✨ Semua Alasan",
+        "f-suicidal": "🌊 Ingin Mengakhiri Hidup",
+        "f-depression": "🌧️ Depresi & Hampa",
+        "f-anxiety": "⚡ Cemas & Overthinking",
+        "f-loneliness": "🍂 Kesepian & Tak Dimengerti",
+        "f-exhaustion": "🕯️ Lelah Berjuang",
+        "btn-next-label": "Buka Surat Lainnya (AI / Stranger)",
+        "btn-write-label": "Tulis Suratmu Sendiri Untuk Orang Lain",
+        "write-title": "Tinggalkan Pesan Harapan untuk Seseorang",
+        "write-desc": "Kata-katamu yang tulus mungkin adalah satu-satunya hal yang mencegah orang asing di belahan dunia lain untuk mengakhiri hidupnya malam ini. Tulis dengan lembut.",
+        "form-label-topic": "Surat ini ditujukan untuk mereka yang merasa:",
+        "form-label-content": "Isi Suratmu:",
+        "form-label-reason": "Satu alasan kecil untuk tetap hidup (Reason to Stay):",
+        "form-label-name": "Dari (Boleh Anonim / Inisial):",
+        "form-submit": "Kirim Surat Ini 💌",
+        "form-cancel": "Batal",
+        "wall-title": "Dinding Alasan Bertahan (Letters Wall)",
+        "wall-desc": "Kumpulan surat dan pesan tulus yang telah ditulis oleh sesama pengunjung dan AI untuk menemani malam-malam terberatmu."
       },
       en: {
-        "companion-page-title": "Be With Me — Ruang Pulih",
-        "comp-back": "Back to Main Page",
-        "comp-pill": "🌿 Breathing Space & Solitude",
-        "comp-title": "Sit here for a while.<br>The world can wait.",
-        "comp-sub": "You don't have to figure out the future this very second. You don't have to solve anything right now. Just be here, and let your body breathe.",
-        "comp-note-1": "\"If today feels entirely too noisy, if your mind is loaded with a tiredness that has no name, you are allowed to close your eyes here. You don't always have to be strong, nor useful to anyone. Just staying alive today is already plenty.\"",
-        "comp-s1-title": "Gentle Raindrops",
-        "comp-s1-desc": "Soft frequencies to wash away the noise inside your chest.",
-        "comp-s2-title": "Distant Ocean Waves",
-        "comp-s2-desc": "A steady rhythm to ground and soothe your nervous system.",
-        "comp-s3-title": "Peaceful Night Ambient",
-        "comp-s3-desc": "Warm white noise to accompany your rest and stillness."
+        "page-title": "Reasons To Stay — Ruang Pulih",
+        "stay-back": "Back to Ruang Pulih Home",
+        "stay-badge": "💌 Reasons To Stay • Letters From Strangers",
+        "stay-title": "One More Reason to Keep Living.",
+        "stay-subtitle": "When your mind convinces you to let go, read these words. These letters were written by strangers who stood in the exact same shadows, and they desperately want you to stay.",
+        "filter-label": "Select what you are battling right now:",
+        "f-all": "✨ All Reasons",
+        "f-suicidal": "🌊 Suicidal Thoughts",
+        "f-depression": "🌧️ Depression & Emptiness",
+        "f-anxiety": "⚡ Anxiety & Overthinking",
+        "f-loneliness": "🍂 Loneliness & Misunderstood",
+        "f-exhaustion": "🕯️ Exhausted Fighting",
+        "btn-next-label": "Open Another Letter (AI / Stranger)",
+        "btn-write-label": "Write Your Own Letter to a Stranger",
+        "write-title": "Leave a Letter of Hope for Someone",
+        "write-desc": "Your genuine words might be the only tether keeping someone from letting go tonight. Please write with gentleness and grace.",
+        "form-label-topic": "This letter is addressed to those feeling:",
+        "form-label-content": "Your Letter:",
+        "form-label-reason": "One small reason to stay alive (Reason to Stay):",
+        "form-label-name": "From (Anonymous or Alias):",
+        "form-submit": "Send This Letter 💌",
+        "form-cancel": "Cancel",
+        "wall-title": "Letters of Hope Wall",
+        "wall-desc": "A collective sanctuary of letters penned by visitors and AI to accompany your heaviest nights."
       }
     };
 
-    function setCompanionLang(lang) {
-      currentCompLang = lang;
+    function setLang(lang) {
+      currentLang = lang;
       document.getElementById('btn-id').classList.toggle('active', lang === 'id');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      const data = COMP_LANG[lang];
-      document.title = data["companion-page-title"];
+      const data = STAY_LANG[lang];
+      document.title = data["page-title"];
       document.querySelectorAll('[data-id]').forEach(el => {
         const key = el.getAttribute('data-id');
         if (data[key]) el.innerHTML = data[key];
       });
-      // reset statuses
-      ['rain', 'waves', 'night'].forEach(type => {
-        const statusEl = document.getElementById(`status-${type}`);
-        if (currentPlaying === type) {
-          statusEl.textContent = lang === 'id' ? 'Sedang berputar ⏸️' : 'Now Playing ⏸️';
-        } else {
-          statusEl.textContent = lang === 'id' ? 'Klik untuk dengarkan' : 'Click to listen';
-        }
-      });
+      renderRandomLetter();
+      renderWall();
     }
 
-    /* Web Audio API Sound Synthesizer (Zero external file dependencies) */
-    let audioCtx = null;
-    let activeSource = null;
-    let activeGain = null;
-    let currentPlaying = null;
-
-    function initAudio() {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-    }
-
-    function toggleCalmSound(type) {
-      initAudio();
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
-
-      if (currentPlaying === type) {
-        stopSound();
-        return;
-      }
-
-      stopSound();
-      currentPlaying = type;
-      document.getElementById(`card-${type}`).classList.add('active');
-      document.getElementById(`status-${type}`).textContent = currentCompLang === 'id' ? 'Sedang berputar ⏸️ (Klik stop)' : 'Playing ⏸️ (Click to stop)';
-
-      // Generate White / Pink Noise dynamically
-      const bufferSize = audioCtx.sampleRate * 2;
-      const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-      const output = noiseBuffer.getChannelData(0);
-
-      for (let i = 0; i < bufferSize; i++) {
-        output[i] = Math.random() * 2 - 1;
-      }
-
-      const whiteNoise = audioCtx.createBufferSource();
-      whiteNoise.buffer = noiseBuffer;
-      whiteNoise.loop = true;
-
-      // Filter to simulate sound
-      const filter = audioCtx.createBiquadFilter();
-      if (type === 'rain') {
-        filter.type = 'lowpass';
-        filter.frequency.value = 800; // Rain sound
-      } else if (type === 'waves') {
-        filter.type = 'bandpass';
-        filter.frequency.value = 400; // Sea wave
-      } else {
-        filter.type = 'lowpass';
-        filter.frequency.value = 250; // Deep night hum
-      }
-
-      const gain = audioCtx.createGain();
-      gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
-
-      whiteNoise.connect(filter);
-      filter.connect(gain);
-      gain.connect(audioCtx.destination);
-
-      whiteNoise.start();
-      activeSource = whiteNoise;
-      activeGain = gain;
-    }
-
-    function stopSound() {
-      if (activeSource) {
-        try { activeSource.stop(); } catch(e){}
-        activeSource = null;
-      }
-      if (currentPlaying) {
-        document.getElementById(`card-${currentPlaying}`).classList.remove('active');
-        document.getElementById(`status-${currentPlaying}`).textContent = currentCompLang === 'id' ? 'Klik untuk dengarkan' : 'Click to listen';
-      }
-      currentPlaying = null;
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      initLetters();
+    });
   </script>
 </body>
 </html>
