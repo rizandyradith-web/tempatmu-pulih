@@ -132,15 +132,15 @@
 
     /* THE LETTER DISPLAY CARD */
     .letter-display-box {
-      background: linear-gradient(145deg, rgba(30, 41, 59, 0.75) 0%, rgba(15, 23, 42, 0.95) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.98) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: var(--radius-lg);
       padding: 48px 44px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
       position: relative;
       margin-bottom: 28px;
-      transition: all 0.4s ease;
-      backdrop-filter: blur(8px);
+      transition: all 0.35s ease;
+      backdrop-filter: blur(10px);
     }
     .letter-display-box::before {
       content: '"';
@@ -178,7 +178,7 @@
     }
     .letter-author {
       font-size: 0.82rem;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.55);
       font-style: italic;
     }
     .letter-text {
@@ -223,6 +223,7 @@
       box-shadow: 0 4px 20px rgba(78, 122, 84, 0.35);
       transition: var(--transition);
       cursor: pointer;
+      border: none;
     }
     .btn-next-letter:hover {
       transform: translateY(-2px);
@@ -248,7 +249,7 @@
       transform: translateY(-2px);
     }
 
-    /* WRITE LETTER FORM (COLLAPSIBLE MODAL / DRAWER) */
+    /* WRITE LETTER FORM */
     .write-box {
       background: #1E293B;
       border: 1px solid rgba(255, 255, 255, 0.15);
@@ -370,16 +371,20 @@
       flex-direction: column;
       justify-content: space-between;
       transition: var(--transition);
+      cursor: pointer;
+      text-align: left;
+      position: relative;
     }
     .mini-letter-card:hover {
-      background: rgba(30, 41, 59, 0.9);
-      border-color: rgba(168, 197, 170, 0.3);
-      transform: translateY(-3px);
+      background: rgba(30, 41, 59, 0.95);
+      border-color: rgba(168, 197, 170, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
     .mini-letter-text {
       font-family: var(--font-serif);
       font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255, 255, 255, 0.92);
       line-height: 1.7;
       margin-bottom: 16px;
       font-style: italic;
@@ -392,6 +397,85 @@
       color: rgba(255, 255, 255, 0.5);
       border-top: 1px solid rgba(255, 255, 255, 0.06);
       padding-top: 12px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .card-click-hint {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      font-size: 0.7rem;
+      color: var(--sage-light);
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .mini-letter-card:hover .card-click-hint {
+      opacity: 0.85;
+    }
+
+    /* MODAL POPUP FOR FULL LETTER VIEW */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      padding: 20px;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal-content {
+      background: #1E293B;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      max-width: 640px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+      transform: scale(0.95);
+      transition: all 0.3s ease;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-overlay.open .modal-content {
+      transform: scale(1);
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+    .modal-close-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .modal-text {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: #FFFFFF;
+      line-height: 1.85;
+      margin: 20px 0;
+      white-space: pre-line;
     }
 
     @media (max-width: 640px) {
@@ -405,6 +489,9 @@
       }
       .write-box {
         padding: 24px 18px;
+      }
+      .modal-content {
+        padding: 28px 20px;
       }
     }
   </style>
@@ -466,7 +553,7 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
     <!-- ACTION BUTTONS -->
     <div class="letter-actions">
       <button class="btn-next-letter" onclick="generateNextLetter()">
-        <span>✦</span> <span data-id="btn-next-label">Buka Surat Lainnya (AI / Stranger)</span>
+        <span>✦</span> <span data-id="btn-next-label">Buka Surat Selanjutnya (AI / Stranger)</span>
       </button>
       <button class="btn-write-letter" onclick="toggleWriteForm()">
         <span>✍️</span> <span data-id="btn-write-label">Tulis Suratmu Sendiri Untuk Orang Lain</span>
@@ -518,7 +605,7 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
     <section class="letters-wall-header">
       <h3 class="letters-wall-title" data-id="wall-title">Dinding Alasan Bertahan (Letters Wall)</h3>
       <p class="letters-wall-desc" data-id="wall-desc">
-        Kumpulan surat dan pesan tulus yang telah ditulis oleh sesama pengunjung dan AI untuk menemani malam-malam terberatmu.
+        Kumpulan surat dan pesan tulus yang telah ditulis oleh sesama pengunjung dan AI. Klik pada kartu mana saja untuk membaca isi surat lengkapnya.
       </p>
       <div class="letters-grid" id="letters-grid">
         <!-- Rendered dynamically via JS -->
@@ -527,107 +614,253 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
 
   </div>
 
+  <!-- MODAL POPUP FOR FULL LETTER PREVIEW -->
+  <div class="modal-overlay" id="letter-modal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeModal()">✕</button>
+      <div class="letter-meta">
+        <span class="letter-tag" id="modal-topic-tag">💌 Alasan Bertahan</span>
+        <span class="letter-author" id="modal-author">Dari: Anonim</span>
+      </div>
+      <div class="modal-text" id="modal-text"></div>
+      <div class="letter-reason-highlight" id="modal-reason"></div>
+    </div>
+  </div>
+
   <script>
     /* ========================================================
-       DATABASE SURAT (AI CURATED + SEED DATA + LOCALSTORAGE USER)
+       DATABASE SURAT SEED (ID & EN)
        ======================================================== */
     const DEFAULT_LETTERS = [
       {
-        id: 1,
+        id: "seed-1",
         topic: "suicidal",
         author: "Seseorang yang pernah di posisimu (Bandung)",
         text: "Aku pernah menghitung obat di atas meja sambil menangis gemetar. Rasanya cuma ingin hening. Tapi malam itu aku memutuskan menunggu sampai fajar. Dan matahari terbit itu tidak langsung menyembuhkanku, tapi membuktikan bahwa kegelapan punya batas waktu. Kamu belum kalah. Bertahanlah 24 jam lagi saja.",
         reason: "Karena kamu berhak melihat versi dirimu yang akhirnya bisa tersenyum lepas lagi tanpa rasa bersalah.",
-        lang: "id"
+        lang: "id",
+        isUser: false
       },
       {
-        id: 2,
+        id: "seed-2",
         topic: "depression",
         author: "Teman yang juga sedang belajar pulih",
         text: "Depresi itu pembohong ulung. Dia berbisik bahwa kamu beban, bahwa gak ada yang peduli, bahwa kamu gak berguna. Jangan percaya bisikan itu. Otakmu sedang lelah secara klinis, sama seperti kaki yang terkilir. Kamu gak harus produktif hari ini. Cukup bernapas dan bertahan.",
         reason: "Rasa sejuk air wudhu/mandi sore, aroma hujan pertama di tanah kering, dan novel yang belum sempat kamu selesaikan.",
-        lang: "id"
+        lang: "id",
+        isUser: false
       },
       {
-        id: 3,
+        id: "seed-3",
         topic: "anxiety",
         author: "Anonim (Surabaya)",
         text: "Jantungmu yang berdebar kencang dan kepalamu yang terasa mau meledak itu cuma respon panik tubuhmu. Kamu tidak sedang sekarat, kamu tidak sedang gila. Tarik napas 4 detik, tahan 4 detik, hembuskan 4 detik. Badai pikiran ini akan lewat, selalu lewat.",
         reason: "Karena ketakutan terburuk di kepalamu 90% tidak akan pernah benar-benar terjadi.",
-        lang: "id"
+        lang: "id",
+        isUser: false
       },
       {
-        id: 4,
+        id: "seed-4",
         topic: "loneliness",
         author: "Seseorang dari Yogyakarta",
         text: "Dikelilingi banyak orang tapi rasanya gak ada satu pun yang benar-benar mengenalmu itu sakit banget. Tapi percayalah, di sudut bumi yang lain, ada orang-orang dengan jiwa yang sama yang sedang mencari teman seperti kamu. Kamu cuma belum ketemu mereka aja hari ini.",
         reason: "Teman masa depanmu sedang menunggumu di suatu tempat. Jangan pergi dulu sebelum sempat menyapa mereka.",
-        lang: "id"
+        lang: "id",
+        isUser: false
       },
       {
-        id: 5,
+        id: "seed-5",
         topic: "exhaustion",
         author: "Kakak yang bangga padamu",
         text: "Kamu udah memikul ransel batu ini sendirian selama bertahun-tahun tanpa ada yang tau kan? Wajar kalau lututmu gemetar dan kamu pengen ambruk. Jangan paksakan diri untuk kuat. Taruh ranselnya sebentar di sini. Istirahatlah, kamu sudah berjuang luar biasa hebat.",
         reason: "Bantal tidur yang empuk, selimut hangat, dan rasa lega saat akhirnya bisa melepaskan semua ekspektasi orang lain.",
-        lang: "id"
+        lang: "id",
+        isUser: false
       },
       {
-        id: 6,
+        id: "seed-6",
         topic: "suicidal",
         author: "Someone who stayed (Bristol, UK)",
         text: "I thought ending it all would give me peace. But suicide doesn't take away the pain, it only eliminates any possibility of things ever getting better. Give yourself one more tomorrow. Just one. And then another when you wake up.",
         reason: "Because your future favorite song hasn't even been released yet.",
-        lang: "en"
+        lang: "en",
+        isUser: false
       },
       {
-        id: 7,
+        id: "seed-7",
         topic: "depression",
         author: "A fellow wanderer",
         text: "You don't need a grand purpose to justify existing. You don't owe the world constant accomplishments. Existing, breathing, watching leaves rustle in the breeze — that is already enough.",
         reason: "The way sunlight hits your bedroom floor at 7 AM on a Sunday morning.",
-        lang: "en"
+        lang: "en",
+        isUser: false
+      },
+      {
+        id: "seed-8",
+        topic: "anxiety",
+        author: "Elena (Melbourne)",
+        text: "When the walls feel like they are closing in, remember to unclench your jaw, drop your shoulders away from your ears, and place one hand over your chest. You are safe in this exact room right now. The panic is a wave; let it crash over you and recede.",
+        reason: "The crisp cool breeze right after a midnight downpour.",
+        lang: "en",
+        isUser: false
+      },
+      {
+        id: "seed-9",
+        topic: "loneliness",
+        author: "Anonymous (Seattle)",
+        text: "Loneliness can make you feel completely invisible, like a ghost in your own life. But your existence leaves an imprint. The stranger you smiled at, the cashier you thanked, the animal you petted — you matter to this ecosystem far more than you realize.",
+        reason: "Because there are dogs and cats in this world that haven't been petted by you yet.",
+        lang: "en",
+        isUser: false
+      },
+      {
+        id: "seed-10",
+        topic: "exhaustion",
+        author: "A friend across the screen",
+        text: "You have been fighting battles no one clapped for, carrying grief no one witnessed. Put the armor down for tonight. You don't have to win anything today; surviving until bedtime is a full victory.",
+        reason: "The intoxicating smell of hot coffee and fresh baked bread on a quiet morning.",
+        lang: "en",
+        isUser: false
       }
     ];
 
-    /* Dynamic AI Generative Reason Templates */
-    const AI_REASON_GENERATOR = {
-      id: [
-        "Aroma roti yang baru matang di toko bakery.",
-        "Momen melihat kucing liar menguap dan tidur pulas di teras.",
-        "Seporsi mie instan hangat dengan telur setengah matang pas tengah malam dingin.",
-        "Sensasi memutar lagu kesukaanmu dengan volume penuh di earphone.",
-        "Tawa renyah orang yang kamu sayangi ketika kamu menceritakan lelucon bodoh.",
-        "Rasa lega yang luar biasa setelah menuntaskan tangisan panjang di bawah selimut.",
-        "Pemandangan langit sore berwarna oranye keemasan yang belum pernah kamu lihat sebelumnya."
-      ],
-      en: [
-        "The smell of old books and fresh coffee on a rainy afternoon.",
-        "Seeing a stray cat slowly trust you enough to let you pet its head.",
-        "Listening to an album for the very first time and getting full-body chills.",
-        "The crisp cool air filling your lungs right after a midnight rainfall.",
-        "The people you haven't laughed with yet, but who will love you dearly."
-      ]
+    /* ========================================================
+       AI GENERATOR KATA-KATA RELEVAN (DYNAMIC INFINITE SYNTHESIS)
+       ======================================================== */
+    const AI_SYNTHESIZER = {
+      id: {
+        openings: [
+          "Tolong dengarkan aku sebentar,",
+          "Aku tahu kepalamu sedang begitu berisik malam ini,",
+          "Mungkin saat ini kamu merasa dunia berjalan begitu kejam tanpa henti,",
+          "Hei, terima kasih ya masih membaca kalimat ini,",
+          "Aku tidak akan memintamu untuk langsung tersenyum atau berpikir positif,"
+        ],
+        suicidal: [
+          "Pikiran ingin mengakhiri hidup bukan berarti kamu pengecut, itu cuma tanda bahwa rasa sakitmu sudah melampaui kapasitas sarafmu. Kamu tidak benar-benar ingin mati, kamu hanya ingin penderitaan ini berhenti. Dan rasa sakit ini BISA berhenti tanpa kamu harus lenyap.",
+          "Kalau kamu pergi malam ini, kamu tidak hanya mematikan rasa sakitmu, tapi kamu juga merenggut semua kemungkinan hari-hari bahagia yang belum sempat kamu rasakan di masa depan. Beri dirimu kesempatan satu hari lagi saja.",
+          "Jangan buat keputusan permanen di saat badai perasaanmu sedang berada di puncaknya. Tunggu sampai hujan di dadamu reda. Aku mohon, bertahanlah bersamaku di sini."
+        ],
+        depression: [
+          "Depresi itu seperti kabut tebal yang meyakinkanmu bahwa matahari tidak pernah ada. Tapi kabut tidak pernah tinggal selamanya. Kamu tidak rusak, kamu cuma sedang kelelahan secara kimiawi.",
+          "Kamu tidak harus membuktikan apapun kepada siapapun hari ini. Bangun dari kasur, mencuci muka, atau bahkan sekadar tetap bernapas di bawah selimut sudah merupakan perlawanan yang luar biasa.",
+          "Jangan biarkan rasa hampa ini menipumu. Hatimu masih mampu merasakan kehangatan lagi, kamu hanya butuh waktu untuk pulih tanpa terburu-buru."
+        ],
+        anxiety: [
+          "Pikiran burukmu bukanlah masa depan. Itu cuma suara ketakutan yang sedang berteriak mencari rasa aman. Tarik napas pelan-pelan, lepaskan ketegangan di rahangmu. Kamu aman di detik ini.",
+          "Kamu tidak harus mengontrol segala hal di dunia ini. Cukup fokus pada satu langkah kecil yang ada tepat di depan matamu sekarang.",
+          "Rasa panik ini punya awal dan pasti punya akhir. Izinkan tubuhmu melewatinya seperti ombak yang menyentuh pantai lalu surut kembali."
+        ],
+        loneliness: [
+          "Mungkin orang-orang di sekitarmu saat ini tidak mampu melihat seberapa berharganya kamu. Tapi itu masalah keterbatasan mereka, bukan cerminan nilai dirimu. Kamu layak dicintai apa adanya.",
+          "Suatu hari nanti, kamu akan duduk bersama seseorang yang mendengarkan ceritamu dengan penuh ketulusan tanpa membuatmu merasa seperti beban. Jangan menyerah sebelum hari itu tiba.",
+          "Meskipun kita terpisah jarak dan layar, ketahuilah bahwa detik ini ada orang asing yang benar-benar berdoa agar kamu selamat malam ini."
+        ],
+        exhaustion: [
+          "Istirahat bukanlah tanda kegagalan. Kamu berhak untuk berhenti sejenak, mematikan ponselmu, dan membiarkan dunia berputar tanpa campur tanganmu.",
+          "Tubuh dan jiwamu sudah bekerja sangat keras mempertahankanmu hidup sampai di titik ini. Hormati rasa lelah itu dengan tidur yang nyenyak dan kebaikan pada diri sendiri.",
+          "Besok adalah lembaran baru yang belum ternoda oleh kesalahan hari ini. Rehatlah, kamu sudah cukup."
+        ],
+        reasons: [
+          "Sensasi tegukan pertama air dingin saat tenggorokanmu haus.",
+          "Aroma tanah basah setelah diguyur hujan deras di sore hari.",
+          "Kucing liar lucu yang tiba-tiba menggesekkan badannya ke kakimu.",
+          "Lagu baru musisi favoritmu yang suatu hari nanti akan membuatmu merinding kagum.",
+          "Seporsi makanan hangat yang akan kamu santap bersama tawa teman-teman barumu.",
+          "Momen saat kamu menyadari bahwa kamu sudah berhasil melewati hal terberat dalam hidupmu.",
+          "Pemandangan langit senja jingga keemasan yang belum sempat kamu foto."
+        ],
+        authors: [
+          "AI Companion & Orang Asing yang Peduli",
+          "Seseorang yang pernah menangis di lantai kamar",
+          "Teman yang selamat dari malam tergelap",
+          "Sahabat anonim dari sudut bumi yang lain",
+          "Jiwa yang mengerti betapa beratnya berjuang"
+        ]
+      },
+      en: {
+        openings: [
+          "Please stay and listen for just a moment,",
+          "I know the noise inside your head feels completely deafening tonight,",
+          "Maybe you feel like the entire world is moving forward without you,",
+          "Hey, thank you so much for still reading these words right now,",
+          "I won't ask you to suddenly smile or force false positivity,"
+        ],
+        suicidal: [
+          "Having thoughts of dying doesn't mean you are broken or weak; it simply means your pain has exceeded your nervous system's capacity to cope. You don't truly want to die, you just desperately want the agony to end. And that agony CAN end without ending your life.",
+          "If you leave tonight, you don't just eliminate the pain; you eliminate every single possibility of joy, peace, and love waiting for you in the chapters ahead. Grant yourself one more tomorrow.",
+          "Never make a permanent exit during a temporary emotional storm. Wait until the storm clears. Please, hold on with me right here."
+        ],
+        depression: [
+          "Depression is a masterful liar. It wraps you in thick fog and convinces you the sun never existed. But fog always burns away. You aren't defective; you are clinically exhausted.",
+          "You owe nothing to the world today. Getting out of bed, drinking a glass of water, or simply continuing to inhale air under the blanket is an immense act of rebellion.",
+          "Do not let the emptiness convince you that you are incapable of feeling warmth again. Your heart is merely resting, preparing to bloom once more."
+        ],
+        anxiety: [
+          "Your catastrophic thoughts are not future prophecies. They are merely frantic cries of fear seeking shelter. Unclench your jaw, soften your shoulders. You are safe in this exact room.",
+          "You don't have to carry tomorrow's burdens with today's depleted strength. Just survive the next ten minutes.",
+          "Panic is an ocean wave. It rises, peaks, and inevitably crashes back down. Let it wash over you without fighting it."
+        ],
+        loneliness: [
+          "Perhaps the people around you right now lack the depth to appreciate your soul. That is their blindness, not your worth. You are profoundly deserving of soft, unconditional love.",
+          "Someday soon, you will sit across someone who listens to your stories with eyes full of tenderness, never making you feel like a burden. Stay alive to meet them.",
+          "Even across distance and silicon screens, know that right now, a stranger genuinely wishes for your survival tonight."
+        ],
+        exhaustion: [
+          "Rest is not surrender. You have every right to put your heavy armor down, switch off the world, and just exist without performing.",
+          "Your body and soul have fought relentless wars to keep you breathing until this moment. Honor that fatigue with gentle grace and deep sleep.",
+          "Tomorrow is an unwritten page unblemished by today's heartbreaks. Rest now, you have done plenty."
+        ],
+        reasons: [
+          "The first sip of ice-cold water when your throat is parched.",
+          "The petrichor scent of fresh rain kissing dry asphalt on a summer evening.",
+          "A stray kitten unexpectedly rubbing its little cheek against your ankle.",
+          "An album that will be released next year that will speak directly to your soul.",
+          "A warm home-cooked meal shared with future friends who truly love you.",
+          "The breath of pure relief when you realize you survived your darkest season.",
+          "The golden hue of sunsets you have yet to witness."
+        ],
+        authors: [
+          "AI Companion & A Stranger Who Cares",
+          "Someone who once cried alone on the bedroom floor",
+          "A friend who made it out of the deepest dark",
+          "An anonymous kindred spirit across the world",
+          "A soul who understands the weight of your battle"
+        ]
+      }
     };
 
-    /* State */
+    /* ========================================================
+       STATE MANAGEMENT & TRACKING
+       ======================================================== */
     let currentTopic = 'all';
     let currentLang = 'id';
     let allLetters = [];
+    let seenLetterIds = new Set(); // Melacak surat yang sudah dilihat agar tidak berulang!
+    let activeModalLetter = null;
 
     function initLetters() {
+      // Ambil riwayat surat yang pernah dilihat dari sessionStorage
+      const savedSeen = sessionStorage.getItem('ruang_pulih_seen_letters');
+      if (savedSeen) {
+        try {
+          seenLetterIds = new Set(JSON.parse(savedSeen));
+        } catch(e) {
+          seenLetterIds = new Set();
+        }
+      }
+
+      // Ambil surat buatan user dari LocalStorage
       const stored = localStorage.getItem('ruang_pulih_letters');
+      let userLetters = [];
       if (stored) {
         try {
-          const userLetters = JSON.parse(stored);
-          allLetters = [...userLetters, ...DEFAULT_LETTERS];
-        } catch(e) {
-          allLetters = [...DEFAULT_LETTERS];
-        }
-      } else {
-        allLetters = [...DEFAULT_LETTERS];
+          userLetters = JSON.parse(stored);
+        } catch(e) {}
       }
-      renderRandomLetter();
+
+      allLetters = [...userLetters, ...DEFAULT_LETTERS];
+      renderNextLetter();
       renderWall();
     }
 
@@ -636,27 +869,61 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
       document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-topic') === topic);
       });
-      renderRandomLetter();
+      renderNextLetter();
       renderWall();
     }
 
-    function getFilteredLetters() {
+    /* AI Dynamic Generator jika koleksi surat statis habis/sudah dilihat */
+    function generateFreshAILetter(topic, lang) {
+      const data = AI_SYNTHESIZER[lang];
+      const validTopics = ['suicidal', 'depression', 'anxiety', 'loneliness', 'exhaustion'];
+      const chosenTopic = topic === 'all' ? validTopics[Math.floor(Math.random() * validTopics.length)] : topic;
+
+      const opening = data.openings[Math.floor(Math.random() * data.openings.length)];
+      const body = data[chosenTopic][Math.floor(Math.random() * data[chosenTopic].length)];
+      const reason = data.reasons[Math.floor(Math.random() * data.reasons.length)];
+      const author = data.authors[Math.floor(Math.random() * data.authors.length)];
+
+      return {
+        id: "ai-gen-" + Date.now() + "-" + Math.random().toString(36).substring(2, 7),
+        topic: chosenTopic,
+        author: author,
+        text: `${opening}\n\n${body}`,
+        reason: reason,
+        lang: lang,
+        isUser: false,
+        isAIGenerated: true
+      };
+    }
+
+    function getEligibleLetters() {
       return allLetters.filter(l => {
         const matchTopic = (currentTopic === 'all' || l.topic === currentTopic);
         const matchLang = (l.lang === currentLang || !l.lang);
-        return matchTopic && matchLang;
+        // Surat buatan user (isUser === true) boleh muncul berulang kali.
+        // Surat seed/bawaan hanya muncul jika belum pernah dilihat di device ini!
+        const isEligible = l.isUser ? true : !seenLetterIds.has(l.id);
+        return matchTopic && matchLang && isEligible;
       });
     }
 
-    function renderRandomLetter() {
-      let pool = getFilteredLetters();
-      if (pool.length === 0) {
-        // Fallback to all topic in current lang
-        pool = allLetters.filter(l => l.lang === currentLang || !l.lang);
-      }
-      if (pool.length === 0) pool = allLetters;
+    function renderNextLetter() {
+      let pool = getEligibleLetters();
+      let chosenLetter = null;
 
-      const randomLetter = pool[Math.floor(Math.random() * pool.length)];
+      if (pool.length > 0) {
+        chosenLetter = pool[Math.floor(Math.random() * pool.length)];
+      } else {
+        // JIKA SEMUA SURAT SEED SUDAH DILIHAT -> AI GENERATE SURAT BARU YANG FRESH!
+        chosenLetter = generateFreshAILetter(currentTopic, currentLang);
+        allLetters.unshift(chosenLetter); // tambahkan ke koleksi
+      }
+
+      // Catat bahwa surat ini sudah dilihat
+      if (!chosenLetter.isUser) {
+        seenLetterIds.add(chosenLetter.id);
+        sessionStorage.setItem('ruang_pulih_seen_letters', JSON.stringify(Array.from(seenLetterIds)));
+      }
 
       const topicTagMap = {
         suicidal: currentLang === 'id' ? '🌊 Ingin Mengakhiri Hidup' : '🌊 Suicidal Thoughts',
@@ -668,16 +935,15 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
 
       const box = document.getElementById('letter-box');
       box.style.opacity = '0';
-      box.style.transform = 'translateY(10px)';
+      box.style.transform = 'translateY(8px)';
 
       setTimeout(() => {
-        document.getElementById('letter-topic-tag').textContent = topicTagMap[randomLetter.topic] || '💌 Alasan Bertahan';
-        document.getElementById('letter-author').textContent = (currentLang === 'id' ? 'Dari: ' : 'From: ') + (randomLetter.author || 'Anonim');
-        document.getElementById('letter-text').textContent = `"${randomLetter.text}"`;
+        document.getElementById('letter-topic-tag').textContent = topicTagMap[chosenLetter.topic] || '💌 Alasan Bertahan';
+        document.getElementById('letter-author').textContent = (currentLang === 'id' ? 'Dari: ' : 'From: ') + (chosenLetter.author || 'Anonim');
+        document.getElementById('letter-text').textContent = `"${chosenLetter.text}"`;
         
-        const reasonText = randomLetter.reason || AI_REASON_GENERATOR[currentLang][Math.floor(Math.random() * AI_REASON_GENERATOR[currentLang].length)];
         const label = currentLang === 'id' ? '🌿 Alasan untuk tetap tinggal:' : '🌿 A Reason to Stay:';
-        document.getElementById('letter-reason').innerHTML = `<strong>${label}</strong> ${reasonText}`;
+        document.getElementById('letter-reason').innerHTML = `<strong>${label}</strong> ${chosenLetter.reason}`;
 
         box.style.opacity = '1';
         box.style.transform = 'translateY(0)';
@@ -685,7 +951,7 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
     }
 
     function generateNextLetter() {
-      renderRandomLetter();
+      renderNextLetter();
     }
 
     function toggleWriteForm() {
@@ -706,13 +972,14 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
       if (!content || !reason) return;
 
       const newLetter = {
-        id: Date.now(),
+        id: "user-" + Date.now(),
         topic: topic,
         author: author,
         text: content,
         reason: reason,
         lang: currentLang,
-        date: new Date().toLocaleDateString()
+        date: new Date().toLocaleDateString(),
+        isUser: true // Menandakan bahwa ini ditulis asli oleh sesama manusia!
       };
 
       // Simpan di LocalStorage
@@ -721,44 +988,95 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
       userList.unshift(newLetter);
       localStorage.setItem('ruang_pulih_letters', JSON.stringify(userList));
 
-      // Update state
+      // Tambahkan ke state
       allLetters.unshift(newLetter);
 
       // Reset form & tutup
       document.getElementById('letter-form').reset();
       toggleWriteForm();
 
-      // Langsung tampilkan surat yang baru dibuat
+      // Langsung munculkan surat baru tersebut
       currentTopic = topic;
       document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-topic') === topic);
       });
-      renderRandomLetter();
+      renderNextLetter();
       renderWall();
 
       alert(currentLang === 'id' ? '💌 Terima kasih banyak. Suratmu sudah tersimpan dan akan menemani siapa pun yang membutuhkan harapan malam ini.' : '💌 Thank you sincerely. Your letter has been saved and will comfort someone in their darkest hour.');
     }
 
+    /* ========================================================
+       RENDER LETTERS WALL & FULL POPUP PREVIEW MODAL
+       ======================================================== */
     function renderWall() {
       const grid = document.getElementById('letters-grid');
       grid.innerHTML = '';
-      const pool = getFilteredLetters().slice(0, 9); // show up to 9
+      
+      // Ambil daftar surat sesuai filter bahasa dan topik
+      const pool = allLetters.filter(l => {
+        const matchTopic = (currentTopic === 'all' || l.topic === currentTopic);
+        const matchLang = (l.lang === currentLang || !l.lang);
+        return matchTopic && matchLang;
+      }).slice(0, 12); // Tampilkan hingga 12 kartu di dinding
 
       pool.forEach(item => {
         const card = document.createElement('div');
         card.className = 'mini-letter-card';
+        card.title = currentLang === 'id' ? 'Klik untuk membaca surat lengkap' : 'Click to read full letter';
+        card.onclick = () => openModal(item);
+
+        const previewText = item.text.length > 130 ? item.text.substring(0, 130) + '...' : item.text;
+        const previewReason = item.reason.length > 40 ? item.reason.substring(0, 40) + '...' : item.reason;
+
         card.innerHTML = `
-          <p class="mini-letter-text">"${item.text.length > 140 ? item.text.substring(0, 140) + '...' : item.text}"</p>
+          <span class="card-click-hint">🔍 ${currentLang === 'id' ? 'Baca Full' : 'Read Full'}</span>
+          <p class="mini-letter-text">"${previewText}"</p>
           <div class="mini-letter-foot">
             <span>✍️ ${item.author || 'Anonim'}</span>
-            <span style="color: var(--sage-light); font-weight: 500;">🌿 ${item.reason.substring(0, 45)}...</span>
+            <span style="color: var(--sage-light); font-weight: 500;">🌿 ${previewReason}</span>
           </div>
         `;
         grid.appendChild(card);
       });
     }
 
-    /* Multilanguage System */
+    function openModal(letter) {
+      activeModalLetter = letter;
+      const topicTagMap = {
+        suicidal: currentLang === 'id' ? '🌊 Ingin Mengakhiri Hidup' : '🌊 Suicidal Thoughts',
+        depression: currentLang === 'id' ? '🌧️ Depresi & Hampa' : '🌧️ Depression & Emptiness',
+        anxiety: currentLang === 'id' ? '⚡ Cemas & Overthinking' : '⚡ Anxiety & Panic',
+        loneliness: currentLang === 'id' ? '🍂 Kesepian' : '🍂 Loneliness',
+        exhaustion: currentLang === 'id' ? '🕯️ Lelah Berjuang' : '🕯️ Exhaustion'
+      };
+
+      document.getElementById('modal-topic-tag').textContent = topicTagMap[letter.topic] || '💌 Alasan Bertahan';
+      document.getElementById('modal-author').textContent = (currentLang === 'id' ? 'Ditulis oleh: ' : 'Written by: ') + (letter.author || 'Anonim');
+      document.getElementById('modal-text').textContent = `"${letter.text}"`;
+      
+      const label = currentLang === 'id' ? '🌿 Alasan untuk tetap tinggal:' : '🌿 A Reason to Stay:';
+      document.getElementById('modal-reason').innerHTML = `<strong>${label}</strong> ${letter.reason}`;
+
+      document.getElementById('letter-modal').classList.add('open');
+      document.body.style.overflow = 'hidden'; // cegah scroll saat modal buka
+    }
+
+    function closeModal() {
+      document.getElementById('letter-modal').classList.remove('open');
+      document.body.style.overflow = '';
+      activeModalLetter = null;
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === 'letter-modal') {
+        closeModal();
+      }
+    }
+
+    /* ========================================================
+       MULTILANGUAGE SYSTEM
+       ======================================================== */
     const STAY_LANG = {
       id: {
         "page-title": "Alasan Untuk Bertahan (Reasons To Stay) — Ruang Pulih",
@@ -773,7 +1091,7 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
         "f-anxiety": "⚡ Cemas & Overthinking",
         "f-loneliness": "🍂 Kesepian & Tak Dimengerti",
         "f-exhaustion": "🕯️ Lelah Berjuang",
-        "btn-next-label": "Buka Surat Lainnya (AI / Stranger)",
+        "btn-next-label": "Buka Surat Selanjutnya (AI / Stranger)",
         "btn-write-label": "Tulis Suratmu Sendiri Untuk Orang Lain",
         "write-title": "Tinggalkan Pesan Harapan untuk Seseorang",
         "write-desc": "Kata-katamu yang tulus mungkin adalah satu-satunya hal yang mencegah orang asing di belahan dunia lain untuk mengakhiri hidupnya malam ini. Tulis dengan lembut.",
@@ -784,7 +1102,7 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
         "form-submit": "Kirim Surat Ini 💌",
         "form-cancel": "Batal",
         "wall-title": "Dinding Alasan Bertahan (Letters Wall)",
-        "wall-desc": "Kumpulan surat dan pesan tulus yang telah ditulis oleh sesama pengunjung dan AI untuk menemani malam-malam terberatmu."
+        "wall-desc": "Kumpulan surat dan pesan tulus yang telah ditulis oleh sesama pengunjung dan AI. Klik pada kartu mana saja untuk membaca isi surat lengkapnya."
       },
       en: {
         "page-title": "Reasons To Stay — Ruang Pulih",
@@ -799,7 +1117,7 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
         "f-anxiety": "⚡ Anxiety & Overthinking",
         "f-loneliness": "🍂 Loneliness & Misunderstood",
         "f-exhaustion": "🕯️ Exhausted Fighting",
-        "btn-next-label": "Open Another Letter (AI / Stranger)",
+        "btn-next-label": "Open Next Letter (AI / Stranger)",
         "btn-write-label": "Write Your Own Letter to a Stranger",
         "write-title": "Leave a Letter of Hope for Someone",
         "write-desc": "Your genuine words might be the only tether keeping someone from letting go tonight. Please write with gentleness and grace.",
@@ -810,7 +1128,7 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
         "form-submit": "Send This Letter 💌",
         "form-cancel": "Cancel",
         "wall-title": "Letters of Hope Wall",
-        "wall-desc": "A collective sanctuary of letters penned by visitors and AI to accompany your heaviest nights."
+        "wall-desc": "A collective sanctuary of letters penned by visitors and AI. Click on any card to read the full letter."
       }
     };
 
@@ -824,7 +1142,7 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
         const key = el.getAttribute('data-id');
         if (data[key]) el.innerHTML = data[key];
       });
-      renderRandomLetter();
+      renderNextLetter();
       renderWall();
     }
 
