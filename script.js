@@ -51,13 +51,21 @@ const LANG = {
     "q4-src": "The Brothers Karamazov — Fyodor Dostoevsky",
     "q5-text": "Dunia ini tidak sempurna. Tapi ia masih ada untukmu — dan selama itu, kamu masih punya kemungkinan.",
     "q5-src": "Neon Genesis Evangelion — Rei Ayanami",
+    "q6-text": "Tidur, bangun, tidur, bangun, hidup yang menyedihkan... tapi aku tidak boleh menyerah. Segala sesuatu yang kamu cintai kemungkinan besar akan hilang, tetapi pada akhirnya, cinta akan kembali dengan cara yang lain.",
+    "q6-src": "Letters to Milena & Diari — Franz Kafka",
+    "q7-text": "Mulai sekarang, aku ingin hidup dengan benar. Aku ingin mendengar suara mereka, aku ingin melihat wajah dunia lagi... tolong bantu aku bertahan sedikit lagi.",
+    "q7-src": "A Silent Voice (Koe no Katachi) — Shoya Ishida",
+    "q8-text": "Di tengah musim dingin yang paling menusuk, pada akhirnya aku tersadar bahwa di dalam diriku ada musim panas yang tak terkalahkan.",
+    "q8-src": "Return to Tipasa — Albert Camus",
+    "q9-text": "Hidup ini penuh dengan kepedihan dan keputusasaan. Namun sandiwara hebat kehidupan terus berjalan, dan kamu boleh menyumbangkan satu bait puisimu di sana.",
+    "q9-src": "Dead Poets Society — John Keating",
 
     // Education
     "edu-label": "Pahami Ini",
     "edu-title": "Apa yang sebenarnya terjadi?",
     "edu-desc": "Pikiran untuk mengakhiri hidup bukan tanda kelemahan, kebodohan, atau kurang iman. Ini adalah sinyal bahwa seseorang sedang menanggung rasa sakit yang melebihi kemampuannya saat ini.",
     "edu1-title": "Apa itu Suicidal Thoughts?",
-    "edu1-desc": "Pikiran bunuh diri adalah pikiran tentang mengakhiri hidup sendiri. Bisa berupa pikiran pasif ("Aku ingin tidak ada") atau aktif (rencana konkret). Ini bukan pilihan — ini adalah gejala dari rasa sakit yang sangat dalam.",
+    "edu1-desc": "Pikiran bunuh diri adalah pikiran tentang mengakhiri hidup sendiri. Bisa berupa pikiran pasif (\\\"Aku ingin tidak ada\\\") atau aktif (rencana konkret). Ini bukan pilihan — ini adalah gejala dari rasa sakit yang sangat dalam.",
     "edu2-title": "Ini Lebih Umum dari yang Kamu Kira",
     "edu2-desc": "Menurut WHO, lebih dari 700.000 orang meninggal karena bunuh diri setiap tahun — artinya jauh lebih banyak yang berjuang setiap hari. Kamu tidak sendirian dalam pertarungan ini.",
     "edu3-title": "Tanda-tanda yang Perlu Diperhatikan",
@@ -85,6 +93,12 @@ const LANG = {
     "sat4-title": "Cukup Duduk, Diam, dan Dengarkan.",
     "sat4-sub": "Kamu gak diminta jadi psikiater atau penemu solusi hidupnya.",
     "sat4-desc": "Cukup bilang: \"Aku gak sepenuhnya paham apa yang kamu laluin, tapi aku ada di sini buat nemenin kamu. Makasih ya udah mau cerita ke aku.\" Kalimat sederhana itu jauh lebih menyelamatkan nyawa daripada seribu dalil dan nasihat sok tau.",
+    "sat5-title": "Tanyakan Kebutuhan Praktisnya Saat Ini.",
+    "sat5-sub": "Saat otak kelebihan beban, hal sepele terasa seperti memindahkan gunung.",
+    "sat5-desc": "Jangan tanya pertanyaan abstrak seperti \"kamu mau masa depanmu gimana?\". Tanyakan hal nyata dan konkrit: \"Kamu udah makan hari ini belum? Mau aku bawain makanan?\" atau \"Perlu aku temenin ke kamar periksa/psikolog?\" Tindakan nyata membuat mereka merasa tidak sendirian di dunia nyata.",
+    "sat6-title": "Validasi Bahwa Lelahnya Masuk Akal.",
+    "sat6-sub": "Beri izin bagi mereka untuk merasa rapuh tanpa merasa bersalah.",
+    "sat6-desc": "Katakan dengan lembut: \"Nggak apa-apa kalau hari ini kamu ngerasa capek banget. Kamu udah nahan beban ini sendirian sekian lama, wajar kalau kamu kehabisan tenaga.\" Ketika rasa sakitnya diakui dan tidak dianggap kejahatan, dorongan untuk menghilang perlahan mereda.",
 
     // Education — Open Letter
     "letter-p1": "Kita mungkin tidak saling kenal. Aku tidak tahu namamu, tidak tahu apa yang sudah kamu lalui, tidak tahu berapa malam yang kamu lewati sendirian dengan pikiran yang terasa terlalu berat untuk ditanggung.",
@@ -186,6 +200,14 @@ const LANG = {
     "q4-src": "The Brothers Karamazov — Fyodor Dostoevsky",
     "q5-text": "This world is not perfect. But it is still here for you — and as long as that's true, you still have possibilities.",
     "q5-src": "Neon Genesis Evangelion — Rei Ayanami",
+    "q6-text": "Sleep, wake up, sleep, wake up, what a wretched life... but I must not give up. Everything that you love will probably be lost, but in the end, love will return in another way.",
+    "q6-src": "Letters to Milena & Diaries — Franz Kafka",
+    "q7-text": "From now on, I want to live properly. I want to hear their voices, I want to see the face of the world again... please help me endure just a little longer.",
+    "q7-src": "A Silent Voice (Koe no Katachi) — Shoya Ishida",
+    "q8-text": "In the midst of the deepest winter, I finally discovered that there was in me an invincible summer.",
+    "q8-src": "Return to Tipasa — Albert Camus",
+    "q9-text": "Life is full of sorrow and disillusionment. Yet the powerful play goes on, and you may contribute a verse.",
+    "q9-src": "Dead Poets Society — John Keating",
     "edu-label": "Understand This",
     "edu-title": "What is actually happening?",
     "edu-desc": "Thoughts of ending life are not a sign of weakness, stupidity, or lack of faith. They are a signal that someone is carrying pain that exceeds their current capacity.",
@@ -225,6 +247,12 @@ const LANG = {
     "sat4-title": "Just Sit Down, Be Quiet, and Listen.",
     "sat4-sub": "Nobody asked you to be their psychiatrist or life-solver.",
     "sat4-desc": "Just say: \"I may not fully comprehend what you're battling, but I'm right here with you. Thank you for trusting me enough to share.\" That single sentence saves infinitely more lives than a thousand unsolicited sermons.",
+    "sat5-title": "Ask for Their Immediate Practical Needs.",
+    "sat5-sub": "When the mind is overstimulated, trivial chores feel like moving a mountain.",
+    "sat5-desc": "Don't ask abstract inquiries like \"what's your 5-year plan?\". Ask tangible and grounded questions: \"Have you eaten anything today? Can I bring you warm food?\" or \"Do you want me to hold your hand to the doctor/counselor's clinic?\" Tangible care anchors them back to reality.",
+    "sat6-title": "Validate That Their Exhaustion Makes Complete Sense.",
+    "sat6-sub": "Grant them permission to be fragile without inflicting guilt.",
+    "sat6-desc": "Speak softly: \"It's completely okay if you feel thoroughly drained today. You've held this gigantic storm alone for so long, anyone would run out of breath.\" When pain is validated rather than treated like a criminal offense, the urge to disappear gently subsides.",
     "self-intro-title": "Hey. Just by opening this page, you've already done something that wasn't easy.",
     "self-intro-p1": "No one expects you to suddenly be okay. No one will judge how severe your situation is, or whether you're \"suffering enough\" to ask for help. You're allowed to be here, exactly as you are, with everything you're feeling right now.",
     "self-intro-p2": "Maybe you've been carrying all of this alone for a long time. Maybe you've tried to talk about it but weren't understood. Maybe you don't even know where to start — because the pain has been too much to fit into words.",
@@ -304,8 +332,8 @@ const AI_RESPONSES = {
       "Rasa sendirian itu sangat menyakitkan. Aku ingin kamu tahu: aku di sini bersamamu, dan kamu berhak untuk didengar.",
     ],
     die: [
-      "Aku dengar kamu, dan aku sangat bersyukur kamu mau memberi tahuku. Pikiran seperti itu menunjukkan betapa lelahnya kamu — bukan bahwa kamu buruk. Apakah kamu aman sekarang? 🌿\n\n📞 Jika kamu dalam krisis, tolong hubungi 119 ext. 8 sekarang — mereka terlatih untuk menemanimu.",
-      "Terima kasih sudah mempercayakan ini padaku. Aku tahu ini sangat berat. Yang terpenting sekarang adalah keselamatanmu. Apakah ada seseorang yang bisa bersamamu saat ini?\n\n📞 Kamu juga bisa menghubungi 119 ext. 8 — mereka siap mendengarkan.",
+      "Aku dengar kamu. Rasa lelahmu udah numpuk banget ya sampai rasanya pengen nyerah... Aku gak akan ngehakimi kamu, gak akan nyeramahin atau nyuruh kamu 'harus kuat'. Boleh pelan-pelan tarik napas dulu? Aku ada di sini duduk nemenin kamu, kamu gak sendirian detik ini. 🌿\n\n📞 Kalau rasanya udah terlalu gelap dan gak tertahankan, tolong jangan lalui ini sendirian. Ada orang-orang baik dan terlatih yang siap dengerin kamu tanpa menghakimi di 119 ext. 8 (Layanan Pulih). Kamu berharga, bahkan di saat kamu ngerasa paling hancur.",
+      "Terima kasih ya sudah jujur dan percaya buat ngomong ini ke aku. Memendam rasa ingin menyerah itu luar biasa sakitnya. Aku gak akan bilang 'hidup itu indah' sekarang karena aku tahu saat ini rasanya gak begitu buat kamu. Tapi tolong, tetap di sini dulu ya? 🌿\n\n📞 Kamu berhak mendapatkan ruang aman dan bantuan. Hubungi 119 ext. 8 kapan saja kamu butuh teman bicara.",
     ],
     hurt: [
       "Kamu menyebutkan tentang menyakiti diri sendiri — aku sangat peduli dengan keselamatanmu. Apakah kamu aman sekarang?\n\n📞 Tolong hubungi 119 ext. 8 jika kamu membutuhkan bantuan segera.",
@@ -343,8 +371,8 @@ const AI_RESPONSES = {
       "That feeling of being alone is really painful. I want you to know: I'm here with you, and you deserve to be heard.",
     ],
     die: [
-      "I hear you, and I'm so grateful you told me. Thoughts like that show how exhausted you are — not that you're bad. Are you safe right now? 🌿\n\n📞 If you're in crisis, please call 119 ext. 8 right now — they are trained to be with you.",
-      "Thank you for trusting me with this. I know this is incredibly heavy. The most important thing right now is your safety. Is there someone who can be with you?\n\n📞 You can also call 119 ext. 8 — they are ready to listen.",
+      "I hear you. The weight on your chest must have piled up so heavily that everything feels too unbearable... I will not judge you, I will not preach, and I will not tell you to 'stay strong'. Can you take one gentle breath with me? I am right here sitting beside you, you are not alone in this second. 🌿\n\n📞 If things feel completely dark right now, please don't carry this alone. There are kind, trained people ready to listen with zero judgment at 119 ext. 8 or Crisis Text Line. You matter, especially on the days you feel most broken.",
+      "Thank you for being brave and honest enough to share this with me. Carrying the urge to give up is immensely painful. I won't tell you 'life is wonderful' right now because I know it doesn't feel that way to you. But please, stay right here with me for a bit longer? 🌿\n\n📞 You deserve a safe space and genuine care. Reach out to 119 ext. 8 or crisistextline.org anytime you need a voice.",
     ],
     hurt: [
       "You mentioned hurting yourself — I care deeply about your safety. Are you safe right now?\n\n📞 Please call 119 ext. 8 if you need immediate help.",
@@ -369,7 +397,7 @@ const AI_RESPONSES = {
    ============================================= */
 let currentLang = 'id';
 let currentQuote = 0;
-const totalQuotes = 5;
+const totalQuotes = 9;
 
 /* =============================================
    LANGUAGE SYSTEM
@@ -404,7 +432,7 @@ function setLang(lang) {
   });
 
   // Update quote sources (they use em tags)
-  const qSrcs = ['q1-src','q2-src','q3-src','q4-src','q5-src'];
+  const qSrcs = ['q1-src','q2-src','q3-src','q4-src','q5-src','q6-src','q7-src','q8-src','q9-src'];
   qSrcs.forEach(key => {
     const el = document.querySelector(`[data-id="${key}"]`);
     if (el && data[key]) {
