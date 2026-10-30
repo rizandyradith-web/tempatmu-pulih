@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="companion-page-title">Temani Aku — Ruang Pulih</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Styling Khusus Halaman Temani Aku */
+    body.companion-body {
+      background: #18222A;
+      color: #E2E8F0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .companion-nav {
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(24, 34, 42, 0.8);
+      backdrop-filter: blur(10px);
+    }
+    .companion-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.7);
+      transition: var(--transition);
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .companion-back-link:hover {
+      color: #fff;
+      border-color: var(--sage-light);
+      background: rgba(127, 168, 130, 0.15);
+    }
+    .companion-hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px 100px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .companion-pill {
+      display: inline-block;
+      background: rgba(168, 197, 170, 0.15);
+      border: 1px solid rgba(168, 197, 170, 0.3);
+      color: var(--sage-light);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .companion-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: #FFFFFF;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .companion-subtitle {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.8;
+      margin-bottom: 48px;
+      max-width: 640px;
+    }
+    
+    /* Interactive Breathing Sphere */
+    .breathe-container {
+      margin: 20px auto 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .breathe-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(127, 168, 130, 0.45) 0%, rgba(78, 122, 84, 0.1) 70%);
+      border: 2px solid rgba(168, 197, 170, 0.5);
+      box-shadow: 0 0 50px rgba(127, 168, 130, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: breatheAnim 8s ease-in-out infinite;
+      transition: all 0.3s ease;
+    }
+    .breathe-text {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: #FFFFFF;
+      letter-spacing: 0.05em;
+    }
+    @keyframes breatheAnim {
+      0%, 100% {
+        transform: scale(0.85);
+        box-shadow: 0 0 20px rgba(127, 168, 130, 0.2);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.3);
+        box-shadow: 0 0 70px rgba(127, 168, 130, 0.6);
+        opacity: 1;
+      }
+    }
+
+    /* Ambient Sounds / Calm Cards */
+    .ambient-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      width: 100%;
+      margin-top: 40px;
+      text-align: left;
+    }
+    .ambient-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+    .ambient-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(168, 197, 170, 0.4);
+      transform: translateY(-3px);
+    }
+    .ambient-card.active {
+      border-color: var(--sage);
+      background: rgba(127, 168, 130, 0.15);
+      box-shadow: 0 4px 20px rgba(127, 168, 130, 0.2);
+    }
+    .ambient-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+    .ambient-card h4 {
+      font-size: 1rem;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+      font-family: var(--font-serif);
+    }
+    .ambient-card p {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.5;
+    }
+    .audio-status {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--sage-light);
+      margin-top: 10px;
+      display: block;
+    }
+
+    /* Monolog Note */
+    .quiet-note {
+      margin-top: 60px;
+      padding: 32px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-lg);
+      border-left: 3px solid var(--sage-light);
+      text-align: left;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.98rem;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  </style>
+</head>
+<body class="companion-body">
+
+  <!-- NAVBAR MINI -->
+  <nav class="companion-nav">
+    <a href="/" class="companion-back-link" id="back-home-btn">
+      ← <span data-id="comp-back">Kembali ke Halaman Utama</span>
+    </a>
+    <div class="navbar__actions">
+      <div class="lang-toggle" id="lang-toggle">
+        <button class="lang-btn active" id="btn-id" onclick="setCompanionLang('id')">🇮🇩 ID</button>
+        <button class="lang-btn" id="btn-en" onclick="setCompanionLang('en')">🇬🇧 EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="companion-hero">
+    <div class="companion-pill" data-id="comp-pill">🌿 Ruang Bernapas &amp; Keheningan</div>
+    <h1 class="companion-title" data-id="comp-title">Duduklah sebentar.<br>Dunia bisa menunggu.</h1>
+    <p class="companion-subtitle" data-id="comp-sub">
+      Kamu tidak perlu memikirkan masa depan detik ini. Kamu tidak perlu menyelesaikan apapun sekarang.
+      Cukup berada di sini, dan izinkan tubuhmu bernapas.
+    </p>
+
+    <!-- Breathing Sphere -->
+    <div class="breathe-container">
+      <div class="breathe-circle" id="breathe-circle">
+        <span class="breathe-text" id="breathe-text">Tarik Napas...</span>
+      </div>
+    </div>
+
+    <!-- Monolog Santai & Menenangkan -->
+    <div class="quiet-note">
+      <p data-id="comp-note-1">
+        "Kalau hari ini rasanya terlalu bising, kalau kepalamu dipenuhi rasa capek yang gak ada namanya, kamu boleh memejamkan mata di sini. Kamu gak harus selalu kuat, dan kamu gak harus selalu berguna bagi orang lain. Bertahan hidup saja hari ini sudah sangat cukup."
+      </p>
+    </div>
+
+    <!-- Soundscape Generator (Web Audio API Synthesizer - No external file needed) -->
+    <div class="ambient-grid">
+      <div class="ambient-card" onclick="toggleCalmSound('rain')" id="card-rain">
+        <div class="ambient-icon">🌧️</div>
+        <h4 data-id="comp-s1-title">Rintik Hujan Tenang</h4>
+        <p data-id="comp-s1-desc">Frekuensi lembut untuk menenggelamkan bising di kepalamu.</p>
+        <span class="audio-status" id="status-rain">Klik untuk dengarkan</span>
+      </div>
+
+      <div class="ambient-card" onclick="toggleCalmSound('waves')" id="card-waves">
+        <div class="ambient-icon">🌊</div>
+        <h4 data-id="comp-s2-title">Deburan Ombak Jauh</h4>
+        <p data-id="comp-s2-desc">Irama konstan yang menenangkan sistem sarafmu.</p>
+        <span class="audio-status" id="status-waves">Klik untuk dengarkan</span>
+      </div>
+
+      <div class="ambient-card" onclick="toggleCalmSound('night')" id="card-night">
+        <div class="ambient-icon">🌙</div>
+        <h4 data-id="comp-s3-title">Deru Malam Teduh</h4>
+        <p data-id="comp-s3-desc">White noise hangat untuk menemani tidur dan istirahat.</p>
+        <span class="audio-status" id="status-night">Klik untuk dengarkan</span>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    /* Breathing text sync */
+    const breatheText = document.getElementById('breathe-text');
+    let isInhale = true;
+    setInterval(() => {
+      isInhale = !isInhale;
+      if (currentCompLang === 'id') {
+        breatheText.textContent = isInhale ? 'Tarik Napas...' : 'Hembuskan Pelan...';
+      } else {
+        breatheText.textContent = isInhale ? 'Inhale Deeply...' : 'Exhale Gently...';
+      }
+    }, 4000);
+
+    /* Multilanguage */
+    let currentCompLang = 'id';
+    const COMP_LANG = {
+      id: {
+        "companion-page-title": "Temani Aku — Ruang Pulih",
+        "comp-back": "Kembali ke Halaman Utama",
+        "comp-pill": "🌿 Ruang Bernapas & Keheningan",
+        "comp-title": "Duduklah sebentar.<br>Dunia bisa menunggu.",
+        "comp-sub": "Kamu tidak perlu memikirkan masa depan detik ini. Kamu tidak perlu menyelesaikan apapun sekarang. Cukup berada di sini, dan izinkan tubuhmu bernapas.",
+        "comp-note-1": "\"Kalau hari ini rasanya terlalu bising, kalau kepalamu dipenuhi rasa capek yang gak ada namanya, kamu boleh memejamkan mata di sini. Kamu gak harus selalu kuat, dan kamu gak harus selalu berguna bagi orang lain. Bertahan hidup saja hari ini sudah sangat cukup.\"",
+        "comp-s1-title": "Rintik Hujan Tenang",
+        "comp-s1-desc": "Frekuensi lembut untuk menenggelamkan bising di kepalamu.",
+        "comp-s2-title": "Deburan Ombak Jauh",
+        "comp-s2-desc": "Irama konstan yang menenangkan sistem sarafmu.",
+        "comp-s3-title": "Deru Malam Teduh",
+        "comp-s3-desc": "White noise hangat untuk menemani tidur dan istirahat."
+      },
+      en: {
+        "companion-page-title": "Be With Me — Ruang Pulih",
+        "comp-back": "Back to Main Page",
+        "comp-pill": "🌿 Breathing Space & Solitude",
+        "comp-title": "Sit here for a while.<br>The world can wait.",
+        "comp-sub": "You don't have to figure out the future this very second. You don't have to solve anything right now. Just be here, and let your body breathe.",
+        "comp-note-1": "\"If today feels entirely too noisy, if your mind is loaded with a tiredness that has no name, you are allowed to close your eyes here. You don't always have to be strong, nor useful to anyone. Just staying alive today is already plenty.\"",
+        "comp-s1-title": "Gentle Raindrops",
+        "comp-s1-desc": "Soft frequencies to wash away the noise inside your chest.",
+        "comp-s2-title": "Distant Ocean Waves",
+        "comp-s2-desc": "A steady rhythm to ground and soothe your nervous system.",
+        "comp-s3-title": "Peaceful Night Ambient",
+        "comp-s3-desc": "Warm white noise to accompany your rest and stillness."
+      }
+    };
+
+    function setCompanionLang(lang) {
+      currentCompLang = lang;
+      document.getElementById('btn-id').classList.toggle('active', lang === 'id');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      const data = COMP_LANG[lang];
+      document.title = data["companion-page-title"];
+      document.querySelectorAll('[data-id]').forEach(el => {
+        const key = el.getAttribute('data-id');
+        if (data[key]) el.innerHTML = data[key];
+      });
+      // reset statuses
+      ['rain', 'waves', 'night'].forEach(type => {
+        const statusEl = document.getElementById(`status-${type}`);
+        if (currentPlaying === type) {
+          statusEl.textContent = lang === 'id' ? 'Sedang berputar ⏸️' : 'Now Playing ⏸️';
+        } else {
+          statusEl.textContent = lang === 'id' ? 'Klik untuk dengarkan' : 'Click to listen';
+        }
+      });
+    }
+
+    /* Web Audio API Sound Synthesizer (Zero external file dependencies) */
+    let audioCtx = null;
+    let activeSource = null;
+    let activeGain = null;
+    let currentPlaying = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    function toggleCalmSound(type) {
+      initAudio();
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      if (currentPlaying === type) {
+        stopSound();
+        return;
+      }
+
+      stopSound();
+      currentPlaying = type;
+      document.getElementById(`card-${type}`).classList.add('active');
+      document.getElementById(`status-${type}`).textContent = currentCompLang === 'id' ? 'Sedang berputar ⏸️ (Klik stop)' : 'Playing ⏸️ (Click to stop)';
+
+      // Generate White / Pink Noise dynamically
+      const bufferSize = audioCtx.sampleRate * 2;
+      const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const output = noiseBuffer.getChannelData(0);
+
+      for (let i = 0; i < bufferSize; i++) {
+        output[i] = Math.random() * 2 - 1;
+      }
+
+      const whiteNoise = audioCtx.createBufferSource();
+      whiteNoise.buffer = noiseBuffer;
+      whiteNoise.loop = true;
+
+      // Filter to simulate sound
+      const filter = audioCtx.createBiquadFilter();
+      if (type === 'rain') {
+        filter.type = 'lowpass';
+        filter.frequency.value = 800; // Rain sound
+      } else if (type === 'waves') {
+        filter.type = 'bandpass';
+        filter.frequency.value = 400; // Sea wave
+      } else {
+        filter.type = 'lowpass';
+        filter.frequency.value = 250; // Deep night hum
+      }
+
+      const gain = audioCtx.createGain();
+      gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+
+      whiteNoise.connect(filter);
+      filter.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      whiteNoise.start();
+      activeSource = whiteNoise;
+      activeGain = gain;
+    }
+
+    function stopSound() {
+      if (activeSource) {
+        try { activeSource.stop(); } catch(e){}
+        activeSource = null;
+      }
+      if (currentPlaying) {
+        document.getElementById(`card-${currentPlaying}`).classList.remove('active');
+        document.getElementById(`status-${currentPlaying}`).textContent = currentCompLang === 'id' ? 'Klik untuk dengarkan' : 'Click to listen';
+      }
+      currentPlaying = null;
+    }
+  </script>
+</body>
+</html>

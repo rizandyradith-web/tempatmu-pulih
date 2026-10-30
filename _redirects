@@ -1,5 +1,2 @@
-# Redirect untuk passive banner → website companion (ganti URL-nya nanti)
-/companion    https://companion-placeholder.netlify.app    302
-
-# Contoh redirect lain kalau butuh:
-# /hotline     https://www.intothelightid.org              302
+/temani-aku    /temani-aku.html    200
+/companion     /temani-aku.html    302

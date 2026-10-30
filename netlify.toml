@@ -2,10 +2,14 @@
   publish = "."
 
 [[redirects]]
+  from = "/temani-aku"
+  to = "/temani-aku.html"
+  status = 200
+
+[[redirects]]
   from = "/companion"
-  to = "https://companion-placeholder.netlify.app"
+  to = "/temani-aku.html"
   status = 302
-  force = true
 
 # Tambahkan redirect baru di bawah sini kalau perlu:
 # [[redirects]]
