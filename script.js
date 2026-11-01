@@ -1,5 +1,5 @@
 /* ================================================
-   SCRIPT.JS — Ruang Pulih Website
+   SCRIPT.JS — Tempatmu Pulih Website
    Features:
    - Multi-language (ID / EN) dengan data object
    - Quotes Carousel
@@ -16,11 +16,11 @@
 const LANG = {
   id: {
     // Metadata
-    "page-title": "Ruang Pulih — Kamu Tidak Sendiri",
+    "page-title": "Tempatmu Pulih — Kamu Tidak Sendiri",
 
     // Banner
     "banner-text": "Kalau kamu sering merasa capek hidup tanpa tahu kenapa — ada ruang khusus untukmu di sini.",
-    "banner-btn": "Temani Aku →",
+    "banner-btn": "Aku Butuh Ditemani →",
 
     // Navbar
     "nav-quotes": "Suara Hati",
@@ -32,8 +32,8 @@ const LANG = {
 
     // Hero
     "hero-tag": "Kamu datang di saat yang tepat",
-    "hero-title": "Kamu tidak harus baik-baik saja\nuntuk berada di sini.",
-    "hero-subtitle": "Ruang ini dibuat bukan karena kami tahu persis apa yang kamu rasakan — tapi karena kami percaya bahwa perasaanmu nyata, dan kamu layak untuk didengar.",
+    "hero-title": "Kamu tidak harus baik-baik saja\nuntuk berada di sini",
+    "hero-subtitle": "Ruang ini dibuat bukan karena kami tahu persis apa yang kamu rasakan, tapi karena kami percaya bahwa perasaanmu nyata, dan kamu layak untuk didengar.",
     "hero-cta1": "Aku sedang berjuang",
     "hero-cta2": "Aku ingin membantu orang lain",
 
@@ -41,15 +41,15 @@ const LANG = {
     "quotes-label": "Suara Hati",
     "quotes-title": "Kata-kata yang mungkin pernah tinggal di dadamu",
     "quotes-desc": "Dari novel, film, anime, dan kata-kata mereka yang pernah merasakan kegelapan yang sama — kamu bukan satu-satunya yang merasakannya.",
-    "q1-text": "Mungkin yang aku cari bukan cara untuk mati. Mungkin yang aku cari adalah alasan untuk tetap hidup.",
-    "q1-src": "Seporsi Mie Ayam Sebelum Mati — J.S. Khairen",
-    "q2-text": "Aku merasa seperti tenggelam di bawah cahaya bulan — terlihat cantik dari jauh, tapi tak ada yang tahu betapa dinginnya air di sini.",
+    "q1-text": "Sekarang yang aku inginkan hanyalah beristirahat, tetapi aku tidak tahu istirahat seperti apa yang harus aku ambil agar terlepas dari semua perasaan busuk ini.",
+    "q1-src": "Seporsi Mie Ayam Sebelum Mati — Ale",
+    "q2-text": "Aku merasa seperti tenggelam di bawah cahaya bulan. Terlihat cantik dari jauh, tapi tak ada yang tahu betapa dinginnya air di sini.",
     "q2-src": "Your Lie in April — Kaori Miyazono",
     "q3-text": "Bahkan di tengah segalanya yang terasa hancur, kamu masih ada di sini. Dan itu bukan hal kecil.",
     "q3-src": "The Perks of Being a Wallflower — Stephen Chbosky",
-    "q4-text": "Mencintai kehidupan lebih dari maknanya — itulah setengah dari keberanian yang kamu butuhkan untuk terus berjalan.",
+    "q4-text": "Mencintai kehidupan lebih dari maknanya, itulah setengah dari keberanian yang kamu butuhkan untuk terus berjalan.",
     "q4-src": "The Brothers Karamazov — Fyodor Dostoevsky",
-    "q5-text": "Dunia ini tidak sempurna. Tapi ia masih ada untukmu — dan selama itu, kamu masih punya kemungkinan.",
+    "q5-text": "Dunia ini tidak sempurna. Tapi ia masih ada untukmu, dan selama itu, kamu masih punya kemungkinan.",
     "q5-src": "Neon Genesis Evangelion — Rei Ayanami",
     "q6-text": "Tidur, bangun, tidur, bangun, hidup yang menyedihkan... tapi aku tidak boleh menyerah. Segala sesuatu yang kamu cintai kemungkinan besar akan hilang, tetapi pada akhirnya, cinta akan kembali dengan cara yang lain.",
     "q6-src": "Letters to Milena & Diari — Franz Kafka",
@@ -65,13 +65,13 @@ const LANG = {
     "edu-title": "Apa yang sebenarnya terjadi?",
     "edu-desc": "Pikiran untuk mengakhiri hidup bukan tanda kelemahan, kebodohan, atau kurang iman. Ini adalah sinyal bahwa seseorang sedang menanggung rasa sakit yang melebihi kemampuannya saat ini.",
     "edu1-title": "Apa itu Suicidal Thoughts?",
-    "edu1-desc": "Pikiran bunuh diri adalah pikiran tentang mengakhiri hidup sendiri. Bisa berupa pikiran pasif (\\\"Aku ingin tidak ada\\\") atau aktif (rencana konkret). Ini bukan pilihan — ini adalah gejala dari rasa sakit yang sangat dalam.",
+    "edu1-desc": "Pikiran bunuh diri adalah pikiran tentang mengakhiri hidup sendiri. Bisa berupa pikiran pasif berupa pikiran \"Aku ingin tidak ada\" atau aktif (rencana konkret). Ini bukan pilihan, ini adalah gejala dari rasa sakit yang sangat dalam.",
     "edu2-title": "Ini Lebih Umum dari yang Kamu Kira",
-    "edu2-desc": "Menurut WHO, lebih dari 700.000 orang meninggal karena bunuh diri setiap tahun — artinya jauh lebih banyak yang berjuang setiap hari. Kamu tidak sendirian dalam pertarungan ini.",
+    "edu2-desc": "Menurut WHO, lebih dari 700.000 orang meninggal karena bunuh diri setiap tahun, artinya jauh lebih banyak yang berjuang setiap hari. Kamu tidak sendirian dalam pertarungan ini.",
     "edu3-title": "Tanda-tanda yang Perlu Diperhatikan",
-    "edu3-desc": "Menarik diri dari orang-orang terdekat, berkata \"semua orang lebih baik tanpaku\", memberi-beri barang berharga, atau tiba-tiba tampak sangat tenang setelah periode depresi — ini bisa menjadi sinyal bahwa seseorang butuh bantuan segera.",
+    "edu3-desc": "Menarik diri dari orang-orang terdekat, berkata \"semua orang lebih baik tanpaku\", memberi-beri barang berharga, atau tiba-tiba tampak sangat tenang setelah periode depresi, ini bisa menjadi sinyal bahwa seseorang butuh bantuan segera.",
     "edu4-title": "Ini Bukan Soal Lemah atau Kuat",
-    "edu4-desc": "Depresi dan pikiran bunuh diri memiliki dasar neurobiologis — melibatkan ketidakseimbangan neurotransmiter di otak. Sama seperti diabetes bukan \"kurang bersyukur\", depresi bukan \"kurang kuat\". Ini penyakit yang bisa diobati.",
+    "edu4-desc": "Depresi dan pikiran bunuh diri memiliki dasar neurobiologis yang melibatkan ketidakseimbangan neurotransmiter di otak. Sama seperti diabetes bukan \"kurang bersyukur\", depresi bukan \"kurang kuat\". Ini penyakit yang bisa diobati.",
 
     // Action / Self Steps
     "action-label": "Langkah Perlindungan Diri",
@@ -96,41 +96,41 @@ const LANG = {
     "sat3-desc": "Jangan bajak sesi curhat orang jadi panggung pamer ketahanan mentalmu. Tiap orang punya kapasitas saraf, trauma masa lalu, dan lingkungan yang beda. Kalau kamu kuat, alhamdulillah. Tapi jangan jadiin standar dirimu buat nge-judge rapuhnya orang lain.",
     "sat4-title": "Cukup Duduk, Diam, dan Dengarkan.",
     "sat4-sub": "Kamu gak diminta jadi psikiater atau penemu solusi hidupnya.",
-    "sat4-desc": "Cukup bilang: \"Aku gak sepenuhnya paham apa yang kamu laluin, tapi aku ada di sini buat nemenin kamu. Makasih ya udah mau cerita ke aku.\" Kalimat sederhana itu jauh lebih menyelamatkan nyawa daripada seribu dalil dan nasihat sok tau.",
+    "sat4-desc": "Cukup bilang: \"Aku gak sepenuhnya paham apa yang kamu laluin, tapi aku ada di sini buat nemenin kamu. Makasih ya udah mau cerita ke aku.\" Kalimat sederhana itu jauh lebih menyelamatkan nyawa daripada seribu dalil dan nasihat sok tau. Katakan dengan lembut:
+"Nggak apa-apa kalau hari ini kamu ngerasa capek banget. Kamu udah nahan beban ini sendirian sekian lama, wajar kalau kamu kehabisan tenaga."",
     "sat5-title": "Tanyakan Kebutuhan Praktisnya Saat Ini.",
     "sat5-sub": "Saat otak kelebihan beban, hal sepele terasa seperti memindahkan gunung.",
     "sat5-desc": "Jangan tanya pertanyaan abstrak seperti \"kamu mau masa depanmu gimana?\". Tanyakan hal nyata dan konkrit: \"Kamu udah makan hari ini belum? Mau aku bawain makanan?\" atau \"Perlu aku temenin ke kamar periksa/psikolog?\" Tindakan nyata membuat mereka merasa tidak sendirian di dunia nyata.",
     "sat6-title": "Validasi Bahwa Lelahnya Masuk Akal.",
     "sat6-sub": "Beri izin bagi mereka untuk merasa rapuh tanpa merasa bersalah.",
-    "sat6-desc": "Katakan dengan lembut: \"Nggak apa-apa kalau hari ini kamu ngerasa capek banget. Kamu udah nahan beban ini sendirian sekian lama, wajar kalau kamu kehabisan tenaga.\" Ketika rasa sakitnya diakui dan tidak dianggap kejahatan, dorongan untuk menghilang perlahan mereda.",
 
     // Education — Open Letter
     "letter-p1": "Kita mungkin tidak saling kenal. Aku tidak tahu namamu, tidak tahu apa yang sudah kamu lalui, tidak tahu berapa malam yang kamu lewati sendirian dengan pikiran yang terasa terlalu berat untuk ditanggung.",
-    "letter-p2": "Tapi aku tahu satu hal: kamu sudah berjuang sebaik yang kamu bisa. Dengan apa yang kamu punya. Dengan sisa tenaga yang ada. Dan itu — meski terasa kecil bagimu — adalah sesuatu yang luar biasa.",
-    "letter-p3": "Mungkin ada hari-hari di mana kamu bangun pagi dan itu saja sudah terasa seperti pencapaian terbesar. Mungkin ada momen di mana kamu harus pura-pura baik-baik saja di depan orang lain, padahal di dalam kamu sedang hampir hancur. Mungkin kamu sudah lelah menjelaskan rasa sakitmu kepada orang-orang yang tidak mengerti — sampai kamu memilih diam, bukan karena tidak apa-apa, tapi karena lelah berusaha dipahami.",
+    "letter-p2": "Tapi aku tahu satu hal: kamu sudah berjuang sebaik yang kamu bisa. Dengan apa yang kamu punya. Dengan sisa tenaga yang ada. Dan itu, meski terasa kecil bagimu, adalah sesuatu yang luar biasa.",
+    "letter-p3": "Mungkin ada hari-hari di mana kamu bangun pagi dan itu saja sudah terasa seperti pencapaian terbesar. Mungkin ada momen di mana kamu harus pura-pura baik-baik saja di depan orang lain, padahal di dalam kamu sedang hampir hancur. Mungkin kamu sudah lelah menjelaskan rasa sakitmu kepada orang-orang yang tidak mengerti sampai kamu memilih diam, bukan karena tidak apa-apa, tapi karena lelah berusaha dipahami.",
     "letter-p4": "Itu tidak membuatmu lemah. Itu tidak membuatmu berlebihan. Itu tidak membuatmu gila atau salah atau tidak layak untuk bertahan.",
-    "letter-p5": "Rasa sakitmu nyata. Kelelahan itu nyata. Dan kamu — kamu juga nyata, dan berharga, bahkan di hari-hari ketika kamu paling sulit mempercayai itu.",
-    "letter-p6": "Halaman ini bukan untuk menghakimimu. Bukan untuk memberitahumu bahwa kamu \"harusnya\" merasa seperti ini atau itu. Ini hanya ingin bilang: kamu tidak harus menanggung ini sendirian. Dan ada hal-hal yang mungkin belum kamu tahu — tentang apa yang sebenarnya terjadi di dalam dirimu — yang mungkin bisa membuatmu sedikit lebih memahami diri sendiri.",
-    "letter-sig": "— Dengan penuh ketulusan, Ruang Pulih 🌿",
+    "letter-p5": "Rasa sakitmu nyata. Kelelahan itu nyata. Dan kamu, kamu juga nyata, dan berharga, bahkan di hari-hari ketika kamu paling sulit mempercayai itu.",
+    "letter-p6": "Halaman ini bukan untuk menghakimimu. Bukan untuk memberitahumu bahwa kamu \"harusnya\" merasa seperti ini atau itu. Ini hanya ingin bilang: kamu tidak harus menanggung ini sendirian. Dan ada hal-hal yang mungkin belum kamu tahu, tentang apa yang sebenarnya terjadi di dalam dirimu, yang mungkin bisa membuatmu sedikit lebih memahami diri sendiri.",
+    "letter-sig": "— Dengan penuh ketulusan, Tempatmu Pulih 🌿",
 
     // Self tab — expanded intro
     "self-intro-title": "Hei. Hanya dengan membuka halaman ini, kamu sudah melakukan sesuatu yang tidak mudah.",
     "self-intro-p1": "Gak ada yang mengharapkan kamu tiba-tiba baik-baik saja. Gak ada yang akan menilai seberapa parah kondisimu, atau apakah kamu \"cukup\" menderita untuk boleh minta tolong. Kamu boleh ada di sini, apa adanya, dengan semua yang sedang kamu rasakan sekarang.",
-    "self-intro-p2": "Mungkin kamu sudah lama menyimpan semua ini sendirian. Mungkin kamu sudah mencoba cerita tapi tidak dimengerti. Mungkin kamu bahkan tidak tahu harus mulai dari mana — karena rasa sakitnya sudah terlalu banyak untuk dirangkum dalam kata-kata.",
-    "self-intro-p3": "Itu wajar. Kamu tidak harus menjelaskan apapun. Yang paling penting sekarang, satu-satunya hal yang perlu kamu lakukan, adalah tetap aman — dan membiarkan langkah-langkah kecil di bawah ini menemanimu pelan-pelan.",
+    "self-intro-p2": "Mungkin kamu sudah lama menyimpan semua ini sendirian. Mungkin kamu sudah mencoba cerita tapi tidak dimengerti. Mungkin kamu bahkan tidak tahu harus mulai dari mana karena rasa sakitnya sudah terlalu banyak untuk dirangkum dalam kata-kata.",
+    "self-intro-p3": "Itu wajar. Kamu tidak harus menjelaskan apapun. Yang paling penting sekarang, satu-satunya hal yang perlu kamu lakukan, adalah tetap aman dan membiarkan langkah-langkah kecil di bawah ini menemanimu pelan-pelan.",
 
     "self-s1-title": "Pergi dari situasi yang tidak aman",
     "self-s1-desc": "Kalau ada benda atau tempat yang membuatmu merasa tidak aman, jauhkan dirimu dari sana dulu. Pergi ke tempat ramai, atau hubungi seseorang.",
     "self-s2-title": "Hubungi seseorang sekarang",
-    "self-s2-desc": "Boleh teman, anggota keluarga, atau hotline di bawah ini. Kamu tidak harus menjelaskan semuanya — cukup bilang \"aku butuh ditemani sekarang.\"",
+    "self-s2-desc": "Boleh teman, anggota keluarga, atau hotline di bawah ini. Kamu tidak harus menjelaskan semuanya, cukup bilang \"aku butuh ditemani sekarang.\"",
     "self-s3-title": "Buat \"Rencana Keselamatan\" sederhana",
     "self-s3-desc": "Tuliskan: siapa yang akan kamu hubungi, tempat yang membuatmu merasa aman, dan satu hal kecil yang bisa kamu lakukan saat pikiran itu datang (ex: minum air, keluar dari kamar).",
     "self-s4-title": "Cari bantuan profesional",
-    "self-s4-desc": "Psikolog atau psikiater bukan tanda kamu gila — mereka adalah orang yang terlatih untuk menemanimu keluar dari kegelapan ini. Kamu berhak mendapat bantuan itu.",
+    "self-s4-desc": "Psikolog atau psikiater bukan tanda kamu gila, mereka adalah orang yang terlatih untuk menemanimu keluar dari kegelapan ini. Kamu berhak mendapat bantuan itu.",
     "self-s5-title": "Izinkan dirimu merasa",
-    "self-s5-desc": "Kamu tidak harus \"kuat\" atau \"bersyukur\" sekarang. Izinkan dirimu sedih, marah, atau lelah — perasaan itu valid. Kamu tidak harus pura-pura baik-baik saja.",
+    "self-s5-desc": "Kamu tidak harus \"kuat\" atau \"bersyukur\" sekarang. Izinkan dirimu sedih, marah, atau lelah. Perasaan itu valid, semua yang kamu rasakan itu valid. Kamu tidak harus pura-pura baik-baik saja.",
     "self-s6-title": "Bicara dengan AI Companion kami",
-    "self-s6-desc": "Kalau kamu belum siap bicara dengan manusia, AI companion kami bisa jadi pendengar pertama yang aman dan tidak menghakimi — 24 jam sehari.",
+    "self-s6-desc": "Kalau kamu belum siap bicara dengan manusia, AI companion kami bisa jadi pendengar pertama yang aman dan tidak menghakimi, 24 jam sehari.",
     "self-s6-btn": "Mulai Bicara →",
 
     // Others tab
@@ -151,7 +151,7 @@ const LANG = {
 
     // Hotline
     "hotline-label": "Bantuan Darurat",
-    "hotline-title": "Kalau sekarang rasanya tidak bisa ditanggung lagi —",
+    "hotline-title": "Kalau sekarang rasanya tidak bisa ditanggung lagi",
     "hotline-desc": "Hubungi salah satu layanan di bawah ini. Mereka terlatih, tidak akan menghakimi, dan siap mendengarkan kapanpun kamu butuh.",
     "hl1-desc": "Konseling & dukungan emosional",
     "hl2-desc": "Konseling psikologis",
@@ -163,7 +163,7 @@ const LANG = {
 
     // AI Chat
     "ai-btn": "Bicara dengan AI",
-    "ai-panel-title": "AI Companion — Ruang Pulih",
+    "ai-panel-title": "AI Companion — Tempatmu Pulih",
     "ai-welcome": "Hei 🌿 Aku di sini. Kamu tidak harus menjelaskan semuanya — ceritakan saja apa yang kamu mau. Aku mendengarkan.",
     "ai-disclaimer": "⚠️ AI ini bukan pengganti bantuan profesional. Jika kamu dalam bahaya, hubungi 119 ext. 8 sekarang.",
     "ai-input-placeholder": "Cerita di sini...",
@@ -177,7 +177,7 @@ const LANG = {
   },
 
   en: {
-    "page-title": "Ruang Pulih — You Are Not Alone",
+    "page-title": "Tempatmu Pulih — You Are Not Alone",
     "banner-text": "If you often feel tired of life without knowing why — there's a space here made just for you.",
     "banner-btn": "Be With Me →",
     "nav-quotes": "Heart Voices",
@@ -222,7 +222,7 @@ const LANG = {
     "letter-p4": "That doesn't make you weak. That doesn't make you dramatic. That doesn't make you broken or wrong or undeserving of surviving.",
     "letter-p5": "Your pain is real. The exhaustion is real. And you — you are real, and you matter, even on the days when you struggle most to believe that.",
     "letter-p6": "This page is not here to judge you. Not to tell you how you \"should\" feel. It's simply here to say: you don't have to carry this alone. And there are things you may not yet know — about what's really happening inside you — that might help you understand yourself a little more.",
-    "letter-sig": "— With all sincerity, Ruang Pulih 🌿",
+    "letter-sig": "— With all sincerity, Tempatmu Pulih 🌿",
     "edu1-title": "What are Suicidal Thoughts?",
     "edu1-desc": "Suicidal thoughts are thoughts about ending one's own life. They can be passive (\"I wish I didn't exist\") or active (a concrete plan). This is not a choice — it is a symptom of very deep pain.",
     "edu2-title": "It's More Common Than You Think",
@@ -303,7 +303,7 @@ const LANG = {
     "hl-office": "Office Hours",
     "hotline-note": "📞 If you or someone is in immediate danger, call 112 or go to the nearest hospital emergency room.",
     "ai-btn": "Talk to AI",
-    "ai-panel-title": "AI Companion — Ruang Pulih",
+    "ai-panel-title": "AI Companion — Tempatmu Pulih",
     "ai-welcome": "Hey 🌿 I'm here. You don't have to explain everything — just share whatever you want. I'm listening.",
     "ai-disclaimer": "⚠️ This AI is not a replacement for professional help. If you are in danger, call 119 ext. 8 right now.",
     "ai-input-placeholder": "Share here...",
