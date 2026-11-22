@@ -10,8 +10,8 @@
   <style>
     /* Styling Khusus Reasons To Stay / Temani Aku */
     body.stay-body {
-      background: #0F172A;
-      color: #E2E8F0;
+      background: #0E1513;
+      color: #E2ECE6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -19,12 +19,12 @@
     }
     
     .stay-nav {
-      padding: 18px 32px;
+      padding: 16px 32px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(14, 21, 19, 0.90);
       backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
@@ -34,23 +34,23 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: rgba(255, 255, 255, 0.7);
-      padding: 6px 14px;
-      border-radius: 100px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       transition: var(--transition);
     }
     .stay-back-link:hover {
       color: #fff;
-      border-color: var(--sage-light);
-      background: rgba(127, 168, 130, 0.15);
+      border-color: var(--sage);
+      background: rgba(74, 115, 93, 0.15);
     }
     
     .stay-container {
       max-width: 860px;
       margin: 0 auto;
-      padding: 50px 24px 100px;
+      padding: 48px 24px 90px;
       flex: 1;
       width: 100%;
     }
@@ -61,15 +61,16 @@
     }
     .stay-badge {
       display: inline-block;
-      background: rgba(127, 168, 130, 0.15);
-      border: 1px solid rgba(127, 168, 130, 0.35);
+      background: rgba(74, 115, 93, 0.15);
+      border: 1px solid rgba(74, 115, 93, 0.30);
       color: var(--sage-light);
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 6px 18px;
-      border-radius: 100px;
-      margin-bottom: 20px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 18px;
     }
     .stay-title {
       font-family: var(--font-serif);
@@ -83,7 +84,7 @@
       font-family: var(--font-serif);
       font-style: italic;
       font-size: clamp(1rem, 2vw, 1.15rem);
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.72);
       line-height: 1.8;
       max-width: 620px;
       margin: 0 auto;
@@ -95,62 +96,62 @@
       text-align: center;
     }
     .filter-label {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: rgba(255, 255, 255, 0.55);
       margin-bottom: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
+      font-weight: 600;
       display: block;
     }
     .filter-pills {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
     }
     .filter-btn {
-      padding: 8px 18px;
-      border-radius: 100px;
-      background: rgba(255, 255, 255, 0.06);
+      padding: 7px 16px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.12);
       color: rgba(255, 255, 255, 0.75);
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       font-weight: 500;
       transition: var(--transition);
       cursor: pointer;
     }
     .filter-btn:hover {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.10);
       color: #fff;
     }
     .filter-btn.active {
-      background: var(--sage-dark);
+      background: #233D30;
       border-color: var(--sage);
       color: #FFFFFF;
-      box-shadow: 0 4px 16px rgba(78, 122, 84, 0.4);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     }
 
     /* THE LETTER DISPLAY CARD */
     .letter-display-box {
-      background: linear-gradient(145deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.98) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: var(--radius-lg);
-      padding: 48px 44px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      background: #14201C;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 44px 40px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
       position: relative;
       margin-bottom: 28px;
-      transition: all 0.35s ease;
-      backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
     }
     .letter-display-box::before {
       content: '"';
       font-family: var(--font-serif);
-      font-size: 7rem;
+      font-size: 6rem;
       color: var(--sage-light);
-      opacity: 0.18;
+      opacity: 0.15;
       position: absolute;
       top: 15px;
-      left: 30px;
+      left: 24px;
       line-height: 1;
       pointer-events: none;
     }
@@ -162,19 +163,20 @@
       flex-wrap: wrap;
       gap: 12px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 16px;
+      padding-bottom: 14px;
     }
     .letter-tag {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(127, 168, 130, 0.15);
-      border: 1px solid rgba(127, 168, 130, 0.3);
+      background: rgba(74, 115, 93, 0.16);
+      border: 1px solid rgba(74, 115, 93, 0.32);
       color: var(--sage-light);
-      padding: 4px 12px;
-      border-radius: 100px;
+      padding: 3px 10px;
+      border-radius: var(--radius-sm);
       font-size: 0.75rem;
       font-weight: 600;
+      letter-spacing: 0.04em;
     }
     .letter-author {
       font-size: 0.82rem;
@@ -183,7 +185,7 @@
     }
     .letter-text {
       font-family: var(--font-serif);
-      font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+      font-size: clamp(1.1rem, 2.4vw, 1.32rem);
       color: #F8FAFC;
       line-height: 1.85;
       margin-bottom: 24px;
@@ -191,71 +193,71 @@
       white-space: pre-line;
     }
     .letter-reason-highlight {
-      background: rgba(127, 168, 130, 0.12);
+      background: rgba(74, 115, 93, 0.12);
       border-left: 3px solid var(--sage);
-      padding: 16px 20px;
+      padding: 14px 18px;
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
       font-family: var(--font-serif);
       font-style: italic;
       color: var(--sage-light);
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       margin-top: 16px;
     }
 
     /* ACTION BUTTONS (Next Letter & Write) */
     .letter-actions {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 50px;
+      margin-bottom: 48px;
     }
     .btn-next-letter {
-      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+      background: var(--sage);
       color: #fff;
-      padding: 14px 28px;
-      border-radius: 100px;
-      font-size: 0.95rem;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      box-shadow: 0 4px 20px rgba(78, 122, 84, 0.35);
+      gap: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
       transition: var(--transition);
       cursor: pointer;
       border: none;
     }
     .btn-next-letter:hover {
+      background: var(--sage-dark);
       transform: translateY(-2px);
-      box-shadow: 0 6px 28px rgba(78, 122, 84, 0.5);
     }
     .btn-write-letter {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       color: #FFFFFF;
-      padding: 14px 28px;
-      border-radius: 100px;
-      font-size: 0.95rem;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
       font-weight: 500;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       transition: var(--transition);
       cursor: pointer;
     }
     .btn-write-letter:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.3);
       transform: translateY(-2px);
     }
 
     /* WRITE LETTER FORM */
     .write-box {
-      background: #1E293B;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: var(--radius-lg);
-      padding: 36px 32px;
-      margin-top: 30px;
+      background: #15221E;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      margin-top: 24px;
       display: none;
       animation: fadeIn 0.3s ease;
     }
@@ -263,76 +265,76 @@
       display: block;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .write-title {
       font-family: var(--font-serif);
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       color: #fff;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .write-desc {
       font-size: 0.88rem;
       color: rgba(255, 255, 255, 0.65);
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       line-height: 1.6;
     }
     .form-group {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .form-group label {
       display: block;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
       color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
     .form-control {
       width: 100%;
-      background: #0F172A;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #0E1513;
+      border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: var(--radius-sm);
-      padding: 12px 16px;
+      padding: 10px 14px;
       color: #fff;
       font-family: inherit;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       outline: none;
       transition: var(--transition);
       box-sizing: border-box;
     }
     .form-control:focus {
       border-color: var(--sage);
-      box-shadow: 0 0 0 3px rgba(127, 168, 130, 0.2);
+      box-shadow: 0 0 0 2px rgba(74, 115, 93, 0.25);
     }
     textarea.form-control {
-      min-height: 120px;
+      min-height: 110px;
       resize: vertical;
       line-height: 1.6;
     }
     .write-submit-btn {
-      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+      background: var(--sage);
       color: #fff;
-      padding: 12px 28px;
-      border-radius: 100px;
+      padding: 10px 24px;
+      border-radius: var(--radius-sm);
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       border: none;
       cursor: pointer;
       transition: var(--transition);
     }
     .write-submit-btn:hover {
+      background: var(--sage-dark);
       transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(78, 122, 84, 0.4);
     }
     .write-cancel-btn {
       background: none;
       border: none;
       color: rgba(255, 255, 255, 0.6);
-      font-size: 0.88rem;
-      padding: 12px 20px;
+      font-size: 0.85rem;
+      padding: 10px 16px;
       cursor: pointer;
     }
     .write-cancel-btn:hover {
@@ -342,31 +344,31 @@
     /* ALL LETTERS WALL FEED */
     .letters-wall-header {
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 50px;
-      margin-top: 40px;
+      padding-top: 48px;
+      margin-top: 36px;
       text-align: center;
     }
     .letters-wall-title {
       font-family: var(--font-serif);
-      font-size: 1.6rem;
+      font-size: 1.55rem;
       color: #fff;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .letters-wall-desc {
       font-size: 0.9rem;
       color: rgba(255, 255, 255, 0.6);
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
     .letters-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      gap: 18px;
     }
     .mini-letter-card {
-      background: rgba(30, 41, 59, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #14201C;
+      border: 1px solid rgba(255, 255, 255, 0.09);
       border-radius: var(--radius-md);
-      padding: 24px;
+      padding: 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -376,17 +378,17 @@
       position: relative;
     }
     .mini-letter-card:hover {
-      background: rgba(30, 41, 59, 0.95);
-      border-color: rgba(168, 197, 170, 0.5);
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      background: #182823;
+      border-color: rgba(109, 151, 128, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     }
     .mini-letter-text {
       font-family: var(--font-serif);
       font-size: 0.95rem;
       color: rgba(255, 255, 255, 0.92);
       line-height: 1.7;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       font-style: italic;
     }
     .mini-letter-foot {
@@ -394,8 +396,8 @@
       align-items: center;
       justify-content: space-between;
       font-size: 0.78rem;
-      color: rgba(255, 255, 255, 0.5);
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.55);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       padding-top: 12px;
       flex-wrap: wrap;
       gap: 6px;
@@ -404,13 +406,13 @@
       position: absolute;
       top: 10px;
       right: 14px;
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       color: var(--sage-light);
       opacity: 0;
       transition: var(--transition);
     }
     .mini-letter-card:hover .card-click-hint {
-      opacity: 0.85;
+      opacity: 0.9;
     }
 
     /* MODAL POPUP FOR FULL LETTER VIEW */
@@ -425,7 +427,7 @@
       z-index: 9999;
       opacity: 0;
       pointer-events: none;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
       padding: 20px;
     }
     .modal-overlay.open {
@@ -433,17 +435,17 @@
       pointer-events: all;
     }
     .modal-content {
-      background: #1E293B;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: var(--radius-lg);
-      padding: 40px;
+      background: #15221E;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      padding: 36px;
       max-width: 640px;
       width: 100%;
       position: relative;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-      transform: scale(0.95);
-      transition: all 0.3s ease;
-      max-height: 90vh;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      transform: scale(0.96);
+      transition: all 0.25s ease;
+      max-height: 88vh;
       overflow-y: auto;
     }
     .modal-overlay.open .modal-content {
@@ -451,23 +453,23 @@
     }
     .modal-close-btn {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.1);
+      top: 18px;
+      right: 18px;
+      background: rgba(255, 255, 255, 0.08);
       border: none;
       color: #fff;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 1.1rem;
+      font-size: 1rem;
       transition: var(--transition);
     }
     .modal-close-btn:hover {
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.2);
     }
     .modal-text {
       font-family: var(--font-serif);
@@ -505,8 +507,8 @@
     </a>
     <div class="navbar__actions">
       <div class="lang-toggle" id="lang-toggle">
-        <button class="lang-btn active" id="btn-id" onclick="setLang('id')">🇮🇩 ID</button>
-        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+        <button class="lang-btn active" id="btn-id" onclick="setLang('id')">ID</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
       </div>
     </div>
   </nav>
@@ -514,7 +516,7 @@
   <!-- MAIN CONTAINER -->
   <div class="stay-container">
     <header class="stay-header">
-      <div class="stay-badge" data-id="stay-badge">💌 Reasons To Stay • Surat Dari Orang Asing</div>
+      <div class="stay-badge" data-id="stay-badge">Reasons To Stay • Arsip Penguat Hati</div>
       <h1 class="stay-title" data-id="stay-title">Satu Alasan Lagi Untuk Tetap Bertahan.</h1>
       <p class="stay-subtitle" data-id="stay-subtitle">
         Ketika pikiranmu menyuruhmu untuk menyerah, bacalah surat ini. Surat-surat ini ditulis oleh orang-orang yang pernah berada di tempat tergelap yang sama, dan mereka ingin kamu tetap ada di sini.
@@ -525,19 +527,19 @@
     <div class="filter-wrapper">
       <span class="filter-label" data-id="filter-label">Pilih apa yang sedang kamu rasakan saat ini:</span>
       <div class="filter-pills">
-        <button class="filter-btn active" onclick="filterByTopic('all')" data-topic="all" data-id="f-all">✨ Semua Alasan</button>
-        <button class="filter-btn" onclick="filterByTopic('suicidal')" data-topic="suicidal" data-id="f-suicidal">🌊 Ingin Mengakhiri Hidup</button>
-        <button class="filter-btn" onclick="filterByTopic('depression')" data-topic="depression" data-id="f-depression">🌧️ Depresi &amp; Hampa</button>
-        <button class="filter-btn" onclick="filterByTopic('anxiety')" data-topic="anxiety" data-id="f-anxiety">⚡ Cemas &amp; Overthinking</button>
-        <button class="filter-btn" onclick="filterByTopic('loneliness')" data-topic="loneliness" data-id="f-loneliness">🍂 Kesepian &amp; Tak Dimengerti</button>
-        <button class="filter-btn" onclick="filterByTopic('exhaustion')" data-topic="exhaustion" data-id="f-exhaustion">🕯️ Lelah Berjuang</button>
+        <button class="filter-btn active" onclick="filterByTopic('all')" data-topic="all" data-id="f-all">Semua Alasan</button>
+        <button class="filter-btn" onclick="filterByTopic('suicidal')" data-topic="suicidal" data-id="f-suicidal">Pikiran Menyerah</button>
+        <button class="filter-btn" onclick="filterByTopic('depression')" data-topic="depression" data-id="f-depression">Depresi &amp; Kehampaan</button>
+        <button class="filter-btn" onclick="filterByTopic('anxiety')" data-topic="anxiety" data-id="f-anxiety">Kecemasan Akut</button>
+        <button class="filter-btn" onclick="filterByTopic('loneliness')" data-topic="loneliness" data-id="f-loneliness">Kesepian Mendalam</button>
+        <button class="filter-btn" onclick="filterByTopic('exhaustion')" data-topic="exhaustion" data-id="f-exhaustion">Kelelahan Jiwa</button>
       </div>
     </div>
 
     <!-- MAIN LETTER DISPLAY CARD -->
     <div class="letter-display-box" id="letter-box">
       <div class="letter-meta">
-        <span class="letter-tag" id="letter-topic-tag">🌊 Ingin Mengakhiri Hidup</span>
+        <span class="letter-tag" id="letter-topic-tag">Pikiran Menyerah</span>
         <span class="letter-author" id="letter-author">Dari: Seseorang yang masih bertahan di Jakarta</span>
       </div>
       <div class="letter-text" id="letter-text">
@@ -546,17 +548,17 @@
 Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan melewati 5 menit berikutnya. Satu tarikan napas lagi."
       </div>
       <div class="letter-reason-highlight" id="letter-reason">
-        🌿 <strong>Alasan untuk tetap tinggal:</strong> Karena musim dingin di hatimu pasti berganti, dan kamu belum melihat siapa saja orang-orang baik yang akan kamu temui di masa depan.
+        <strong>Alasan untuk tetap tinggal:</strong> Karena musim dingin di hatimu pasti berganti, dan kamu belum melihat siapa saja orang-orang baik yang akan kamu temui di masa depan.
       </div>
     </div>
 
     <!-- ACTION BUTTONS -->
     <div class="letter-actions">
       <button class="btn-next-letter" onclick="generateNextLetter()">
-        <span>✦</span> <span data-id="btn-next-label">Buka Surat Selanjutnya (AI / Stranger)</span>
+        <span data-id="btn-next-label">Buka Surat Berikutnya</span>
       </button>
       <button class="btn-write-letter" onclick="toggleWriteForm()">
-        <span>✍️</span> <span data-id="btn-write-label">Tulis Suratmu Sendiri Untuk Orang Lain</span>
+        <span data-id="btn-write-label">Tulis Sepucuk Surat Penguat</span>
       </button>
     </div>
 
@@ -571,11 +573,11 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
         <div class="form-group">
           <label data-id="form-label-topic">Surat ini ditujukan untuk mereka yang merasa:</label>
           <select class="form-control" id="form-topic" required>
-            <option value="suicidal">🌊 Ingin Mengakhiri Hidup / Suicidal Thoughts</option>
-            <option value="depression">🌧️ Depresi &amp; Hampa</option>
-            <option value="anxiety">⚡ Cemas &amp; Panic Attack</option>
-            <option value="loneliness">🍂 Kesepian &amp; Ditinggalkan</option>
-            <option value="exhaustion">🕯️ Lelah Berjuang</option>
+            <option value="suicidal">Pikiran Menyerah / Suicidal Thoughts</option>
+            <option value="depression">Depresi &amp; Kehampaan</option>
+            <option value="anxiety">Kecemasan Akut &amp; Overthinking</option>
+            <option value="loneliness">Kesepian Mendalam</option>
+            <option value="exhaustion">Kelelahan Jiwa</option>
           </select>
         </div>
 
@@ -595,7 +597,7 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
         </div>
 
         <div style="display: flex; gap: 10px; align-items: center; margin-top: 20px;">
-          <button type="submit" class="write-submit-btn" data-id="form-submit">Kirim Surat Ini 💌</button>
+          <button type="submit" class="write-submit-btn" data-id="form-submit">Kirim Surat Ini</button>
           <button type="button" class="write-cancel-btn" onclick="toggleWriteForm()" data-id="form-cancel">Batal</button>
         </div>
       </form>
@@ -619,7 +621,7 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
     <div class="modal-content">
       <button class="modal-close-btn" onclick="closeModal()">✕</button>
       <div class="letter-meta">
-        <span class="letter-tag" id="modal-topic-tag">💌 Alasan Bertahan</span>
+        <span class="letter-tag" id="modal-topic-tag">Alasan Bertahan</span>
         <span class="letter-author" id="modal-author">Dari: Anonim</span>
       </div>
       <div class="modal-text" id="modal-text"></div>
@@ -926,23 +928,23 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
       }
 
       const topicTagMap = {
-        suicidal: currentLang === 'id' ? '🌊 Ingin Mengakhiri Hidup' : '🌊 Suicidal Thoughts',
-        depression: currentLang === 'id' ? '🌧️ Depresi & Hampa' : '🌧️ Depression & Emptiness',
-        anxiety: currentLang === 'id' ? '⚡ Cemas & Overthinking' : '⚡ Anxiety & Panic',
-        loneliness: currentLang === 'id' ? '🍂 Kesepian' : '🍂 Loneliness',
-        exhaustion: currentLang === 'id' ? '🕯️ Lelah Berjuang' : '🕯️ Exhaustion'
+        suicidal: currentLang === 'id' ? 'Pikiran Menyerah' : 'Thoughts of Giving Up',
+        depression: currentLang === 'id' ? 'Depresi & Kehampaan' : 'Depression & Emptiness',
+        anxiety: currentLang === 'id' ? 'Kecemasan Akut' : 'Acute Anxiety',
+        loneliness: currentLang === 'id' ? 'Kesepian Mendalam' : 'Deep Loneliness',
+        exhaustion: currentLang === 'id' ? 'Kelelahan Jiwa' : 'Soul Exhaustion'
       };
 
       const box = document.getElementById('letter-box');
       box.style.opacity = '0';
-      box.style.transform = 'translateY(8px)';
+      box.style.transform = 'translateY(6px)';
 
       setTimeout(() => {
-        document.getElementById('letter-topic-tag').textContent = topicTagMap[chosenLetter.topic] || '💌 Alasan Bertahan';
+        document.getElementById('letter-topic-tag').textContent = topicTagMap[chosenLetter.topic] || (currentLang === 'id' ? 'Alasan Bertahan' : 'Reason to Stay');
         document.getElementById('letter-author').textContent = (currentLang === 'id' ? 'Dari: ' : 'From: ') + (chosenLetter.author || 'Anonim');
         document.getElementById('letter-text').textContent = `"${chosenLetter.text}"`;
         
-        const label = currentLang === 'id' ? '🌿 Alasan untuk tetap tinggal:' : '🌿 A Reason to Stay:';
+        const label = currentLang === 'id' ? 'Alasan untuk tetap tinggal:' : 'A Reason to Stay:';
         document.getElementById('letter-reason').innerHTML = `<strong>${label}</strong> ${chosenLetter.reason}`;
 
         box.style.opacity = '1';
@@ -1003,7 +1005,7 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
       renderNextLetter();
       renderWall();
 
-      alert(currentLang === 'id' ? '💌 Terima kasih banyak. Suratmu sudah tersimpan dan akan menemani siapa pun yang membutuhkan harapan malam ini.' : '💌 Thank you sincerely. Your letter has been saved and will comfort someone in their darkest hour.');
+      alert(currentLang === 'id' ? 'Terima kasih banyak. Suratmu sudah tersimpan dan akan menemani siapa pun yang membutuhkan harapan malam ini.' : 'Thank you sincerely. Your letter has been saved and will comfort someone in their darkest hour.');
     }
 
     /* ========================================================
@@ -1030,11 +1032,11 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
         const previewReason = item.reason.length > 40 ? item.reason.substring(0, 40) + '...' : item.reason;
 
         card.innerHTML = `
-          <span class="card-click-hint">🔍 ${currentLang === 'id' ? 'Baca Full' : 'Read Full'}</span>
+          <span class="card-click-hint">${currentLang === 'id' ? 'Buka Surat →' : 'Read Full →'}</span>
           <p class="mini-letter-text">"${previewText}"</p>
           <div class="mini-letter-foot">
-            <span>✍️ ${item.author || 'Anonim'}</span>
-            <span style="color: var(--sage-light); font-weight: 500;">🌿 ${previewReason}</span>
+            <span style="font-weight: 500;">${item.author || 'Anonim'}</span>
+            <span style="color: var(--sage-light); font-weight: 500;">${previewReason}</span>
           </div>
         `;
         grid.appendChild(card);
@@ -1044,18 +1046,18 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
     function openModal(letter) {
       activeModalLetter = letter;
       const topicTagMap = {
-        suicidal: currentLang === 'id' ? '🌊 Ingin Mengakhiri Hidup' : '🌊 Suicidal Thoughts',
-        depression: currentLang === 'id' ? '🌧️ Depresi & Hampa' : '🌧️ Depression & Emptiness',
-        anxiety: currentLang === 'id' ? '⚡ Cemas & Overthinking' : '⚡ Anxiety & Panic',
-        loneliness: currentLang === 'id' ? '🍂 Kesepian' : '🍂 Loneliness',
-        exhaustion: currentLang === 'id' ? '🕯️ Lelah Berjuang' : '🕯️ Exhaustion'
+        suicidal: currentLang === 'id' ? 'Pikiran Menyerah' : 'Thoughts of Giving Up',
+        depression: currentLang === 'id' ? 'Depresi & Kehampaan' : 'Depression & Emptiness',
+        anxiety: currentLang === 'id' ? 'Kecemasan Akut' : 'Acute Anxiety',
+        loneliness: currentLang === 'id' ? 'Kesepian Mendalam' : 'Deep Loneliness',
+        exhaustion: currentLang === 'id' ? 'Kelelahan Jiwa' : 'Soul Exhaustion'
       };
 
-      document.getElementById('modal-topic-tag').textContent = topicTagMap[letter.topic] || '💌 Alasan Bertahan';
+      document.getElementById('modal-topic-tag').textContent = topicTagMap[letter.topic] || (currentLang === 'id' ? 'Alasan Bertahan' : 'Reason to Stay');
       document.getElementById('modal-author').textContent = (currentLang === 'id' ? 'Ditulis oleh: ' : 'Written by: ') + (letter.author || 'Anonim');
       document.getElementById('modal-text').textContent = `"${letter.text}"`;
       
-      const label = currentLang === 'id' ? '🌿 Alasan untuk tetap tinggal:' : '🌿 A Reason to Stay:';
+      const label = currentLang === 'id' ? 'Alasan untuk tetap tinggal:' : 'A Reason to Stay:';
       document.getElementById('modal-reason').innerHTML = `<strong>${label}</strong> ${letter.reason}`;
 
       document.getElementById('letter-modal').classList.add('open');
@@ -1081,25 +1083,25 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
       id: {
         "page-title": "Alasan Untuk Bertahan (Reasons To Stay) — Tempatmu Pulih",
         "stay-back": "Kembali ke Beranda Tempatmu Pulih",
-        "stay-badge": "💌 Reasons To Stay • Surat Dari Orang Asing",
+        "stay-badge": "Reasons To Stay • Arsip Penguat Hati",
         "stay-title": "Satu Alasan Lagi Untuk Tetap Bertahan.",
         "stay-subtitle": "Ketika pikiranmu menyuruhmu untuk menyerah, bacalah surat ini. Surat-surat ini ditulis oleh orang-orang yang pernah berada di tempat tergelap yang sama, dan mereka ingin kamu tetap ada di sini.",
         "filter-label": "Pilih apa yang sedang kamu rasakan saat ini:",
-        "f-all": "✨ Semua Alasan",
-        "f-suicidal": "🌊 Ingin Mengakhiri Hidup",
-        "f-depression": "🌧️ Depresi & Hampa",
-        "f-anxiety": "⚡ Cemas & Overthinking",
-        "f-loneliness": "🍂 Kesepian & Tak Dimengerti",
-        "f-exhaustion": "🕯️ Lelah Berjuang",
-        "btn-next-label": "Buka Surat Selanjutnya (AI / Stranger)",
-        "btn-write-label": "Tulis Suratmu Sendiri Untuk Orang Lain",
+        "f-all": "Semua Alasan",
+        "f-suicidal": "Pikiran Menyerah",
+        "f-depression": "Depresi & Kehampaan",
+        "f-anxiety": "Kecemasan Akut",
+        "f-loneliness": "Kesepian Mendalam",
+        "f-exhaustion": "Kelelahan Jiwa",
+        "btn-next-label": "Buka Surat Berikutnya",
+        "btn-write-label": "Tulis Sepucuk Surat Penguat",
         "write-title": "Tinggalkan Pesan Harapan untuk Seseorang",
         "write-desc": "Kata-katamu yang tulus mungkin adalah satu-satunya hal yang mencegah orang asing di belahan dunia lain untuk mengakhiri hidupnya malam ini. Tulis dengan lembut.",
         "form-label-topic": "Surat ini ditujukan untuk mereka yang merasa:",
         "form-label-content": "Isi Suratmu:",
         "form-label-reason": "Satu alasan kecil untuk tetap hidup (Reason to Stay):",
         "form-label-name": "Dari (Boleh Anonim / Inisial):",
-        "form-submit": "Kirim Surat Ini 💌",
+        "form-submit": "Kirim Surat Ini",
         "form-cancel": "Batal",
         "wall-title": "Dinding Alasan Bertahan (Letters Wall)",
         "wall-desc": "Kumpulan surat dan pesan tulus yang telah ditulis oleh sesama pengunjung dan AI. Klik pada kartu mana saja untuk membaca isi surat lengkapnya."
@@ -1107,25 +1109,25 @@ Kamu gak harus menyelesaikan seluruh hidupmu malam ini. Kamu cuma perlu bertahan
       en: {
         "page-title": "Reasons To Stay — Tempatmu Pulih",
         "stay-back": "Back to Tempatmu Pulih Home",
-        "stay-badge": "💌 Reasons To Stay • Letters From Strangers",
+        "stay-badge": "Reasons To Stay • Letters From Strangers",
         "stay-title": "One More Reason to Keep Living.",
         "stay-subtitle": "When your mind convinces you to let go, read these words. These letters were written by strangers who stood in the exact same shadows, and they desperately want you to stay.",
         "filter-label": "Select what you are battling right now:",
-        "f-all": "✨ All Reasons",
-        "f-suicidal": "🌊 Suicidal Thoughts",
-        "f-depression": "🌧️ Depression & Emptiness",
-        "f-anxiety": "⚡ Anxiety & Overthinking",
-        "f-loneliness": "🍂 Loneliness & Misunderstood",
-        "f-exhaustion": "🕯️ Exhausted Fighting",
-        "btn-next-label": "Open Next Letter (AI / Stranger)",
-        "btn-write-label": "Write Your Own Letter to a Stranger",
+        "f-all": "All Reasons",
+        "f-suicidal": "Thoughts of Giving Up",
+        "f-depression": "Depression & Emptiness",
+        "f-anxiety": "Acute Anxiety",
+        "f-loneliness": "Deep Loneliness",
+        "f-exhaustion": "Soul Exhaustion",
+        "btn-next-label": "Open Next Letter",
+        "btn-write-label": "Write a Letter of Hope",
         "write-title": "Leave a Letter of Hope for Someone",
         "write-desc": "Your genuine words might be the only tether keeping someone from letting go tonight. Please write with gentleness and grace.",
         "form-label-topic": "This letter is addressed to those feeling:",
         "form-label-content": "Your Letter:",
         "form-label-reason": "One small reason to stay alive (Reason to Stay):",
         "form-label-name": "From (Anonymous or Alias):",
-        "form-submit": "Send This Letter 💌",
+        "form-submit": "Send This Letter",
         "form-cancel": "Cancel",
         "wall-title": "Letters of Hope Wall",
         "wall-desc": "A collective sanctuary of letters penned by visitors and AI. Click on any card to read the full letter."
